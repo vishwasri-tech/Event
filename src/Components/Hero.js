@@ -2,6 +2,10 @@ import React from "react";
 import "./Hero.css";
 import bgImage from "../assets/bg.png";
 import logo from "../assets/logo.png";
+import bulb from "../assets/bulb.png";
+import experience from "../assets/experience.png";
+import network from "../assets/network.png";
+
 
 const EventHero = () => {
   return (
@@ -30,17 +34,21 @@ const EventHero = () => {
       </div>
 
       {/* Features */}
-      <div className="features-bar">
-        <div className="feature-item">
-          <span role="img" aria-label="bulb">💡</span> Innovation Competitions
-        </div>
-        <div className="feature-item">
-          <span role="img" aria-label="experience">🤝</span> Engaging Experiences
-        </div>
-        <div className="feature-item">
-          <span role="img" aria-label="network">👥</span> Networking Opportunities
-        </div>
-      </div>
+     <div className="features-bar">
+  <div className="feature-item">
+    <img src={bulb} alt="Innovation" className="feature-icon" />
+    Innovation Competitions
+  </div>
+  <div className="feature-item">
+    <img src={experience} alt="Experience" className="feature-icon" />
+    Engaging Experiences
+  </div>
+  <div className="feature-item">
+    <img src={network} alt="Networking" className="feature-icon" />
+    Networking Opportunities
+  </div>
+</div>
+
     </div>
   );
 };

@@ -1,18 +1,29 @@
+/* ===================
+   Base Styling (Desktop)
+   =================== */
+
 .whats-happening-section {
   font-family: 'Arial', sans-serif;
-  padding: 40px 20px;
+  padding: 100px 20px;
   background-color: #fff;
   color: #1a1a1a;
+  overflow-x: hidden;
 }
 
-/* What's Happening Section */
-.whats-happening h2 {
+.whats-happening {
+  margin-left: 10%;
+}
+
+/* What's Happening Heading */
+.whats-happening h1 {
   color: #1a1a8c;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 25px;
+  margin-right: 80%;
 }
 
+/* Event List */
 .event-list {
   display: flex;
   flex-direction: column;
@@ -46,32 +57,46 @@
   color: #333;
 }
 
-/* Ticket Section */
+/* ===================
+   Ticket Section (Desktop)
+   =================== */
 .ticket-section {
-  background-color: #f3e9fc;
+  background-color: #EEE1FF;
   margin-top: 50px;
-  border-radius: 12px;
-  padding: 30px 20px;
+  padding: 20px 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  gap: 30px;
-  flex-wrap: wrap;
 }
 
 .ticket-text {
   flex: 1;
-  min-width: 260px;
+  max-width: 570px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
+
+.ticket-text h3,
+.ticket-text p,
+.ticket-btn {
+  margin-left: 0;
+  padding-left: 0;
+  text-align: left;
+  align-self: flex-start;
+}
+
 .ticket-text h3 {
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
+
 .ticket-text p {
-  font-size: 16px;
+  font-size: 17px;
   color: #333;
   margin-bottom: 20px;
+  line-height: 1.8;
 }
 
 .ticket-btn {
@@ -89,20 +114,44 @@
 }
 
 .ticket-image img {
-  max-width: 200px;
-  height: auto;
+  width: 450px;
+  height: 370px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .ticket-section {
-    flex-direction: column-reverse;
-    align-items: center;
-    text-align: center;
+
+/* ===================
+   Responsive for Tablets (768px - 1024px)
+   =================== */
+@media (max-width: 1024px) {
+  .whats-happening {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .whats-happening h1 {
+    font-size: 22px;
+    margin-right: 0;
   }
 
   .event-item p {
     font-size: 16px;
+  }
+
+  .ticket-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 30px 15px;
+  }
+
+  .ticket-text {
+    align-items: center;
+  }
+
+  .ticket-text h3,
+  .ticket-text p,
+  .ticket-btn {
+    text-align: center;
+    align-self: center;
   }
 
   .ticket-text h3 {
@@ -110,11 +159,85 @@
   }
 
   .ticket-text p {
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.6;
   }
 
   .ticket-image img {
-    max-width: 150px;
+    width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+}
+
+/* ===================
+   Responsive for Mobile Devices (<768px)
+   =================== */
+@media (max-width: 768px) {
+  .whats-happening-section {
+    padding: 60px 15px;
+  }
+
+  .whats-happening {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .whats-happening h1 {
+    font-size: 20px;
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .event-item {
+    gap: 10px;
+  }
+
+  .event-item img {
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+  }
+
+  .event-item p {
+    font-size: 14px;
+  }
+
+  .ticket-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 25px 15px;
+  }
+
+  .ticket-text {
+    align-items: center;
+  }
+
+  .ticket-text h3,
+  .ticket-text p,
+  .ticket-btn {
+    text-align: center;
+    align-self: center;
+  }
+
+  .ticket-text h3 {
+    font-size: 16px;
+  }
+
+  .ticket-text p {
+    font-size: 14px;
+  }
+
+  .ticket-btn {
+    font-size: 14px;
+    padding: 10px 18px;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .ticket-image img {
+    width: 200px;
+    height: auto;
     margin-bottom: 20px;
   }
 }

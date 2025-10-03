@@ -1,17 +1,17 @@
 import React from "react";
 import "./WhatsHappening.css";
 
-import competitionsIcon from "../assets/competition.png";
-import stallsIcon from "../assets/competition.png";
-import familyIcon from "../assets/competition.png";
-import networkingIcon from "../assets/competition.png";
-import ticketPhone from "../assets/competition.png";
+import competitionsIcon from "../assets/bulb.png";
+import stallsIcon from "../assets/bulb.png";
+import familyIcon from "../assets/bulb.png";
+import networkingIcon from "../assets/bulb.png";
+import ticketPhone from "../assets/phn.png";
 
 const WhatsHappening = () => {
   return (
     <div className="whats-happening-section">
       <div className="whats-happening">
-        <h2>What’s Happening?</h2>
+        <h1>What’s Happening?</h1>
 
         <div className="event-list">
           <div className="event-item">

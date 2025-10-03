@@ -1,5 +1,8 @@
 import React from "react";
-import "./Register.css"; // import the CSS file
+import "./Register.css"; 
+import competitions from "../assets/competitions.png";
+import stalls from "../assets/stalls.png";
+import sponsorship from "../assets/sponsorship.png";
 
 const RegisterSection = () => {
   const cards = [
@@ -9,7 +12,7 @@ const RegisterSection = () => {
         "Tech • Clothing • Food • Startup Pitch • Fun Games",
         "Prizes up to ₹50,000",
       ],
-      img: "/images/competitions.png", // local image path
+      img: competitions, 
       button: "Register Now",
     },
     {
@@ -18,7 +21,7 @@ const RegisterSection = () => {
         "Food • Fashion • Tech • Art • Startups",
         "From ₹30,000 onwards",
       ],
-      img: "/images/stalls.png", // local image path
+      img: stalls, 
       button: "Register Now",
     },
     {
@@ -27,14 +30,14 @@ const RegisterSection = () => {
         "Platinum • Gold • Silver • Bronze",
         "Stage Mentions • Branding • Stalls • Promotions",
       ],
-      img: "/images/sponsorship.png", // local image path
+      img: sponsorship, 
       button: "Register Now",
     },
   ];
 
   return (
     <section className="register-section">
-      <h2 className="section-title">Register Now</h2>
+      <h2 className="section-title">Be Part Of the Celebration</h2>
 
       <div className="card-container">
         {cards.map((card, index) => (
@@ -47,11 +50,12 @@ const RegisterSection = () => {
             {/* Content */}
             <div className="card-content">
               <h3>{card.title}</h3>
-              <ul>
-                {card.description.map((item, i) => (
-                  <li key={i}>• {item}</li>
-                ))}
-              </ul>
+             <ul>
+  {card.description.map((item, i) => (
+    <li key={i}>{item}</li>
+  ))}
+</ul>
+
               <button className="register-btn">{card.button}</button>
             </div>
           </div>

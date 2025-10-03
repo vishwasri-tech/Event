@@ -1,14 +1,19 @@
 .register-section {
   padding: 40px 20px;
   background: #fff;
-  text-align: center;
+  margin-top: -50px;
 }
 
+/* Title aligned with card grid */
 .section-title {
   font-size: 28px;
   font-weight: bold;
   color: #1d2d64;
   margin-bottom: 30px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
 }
 
 /* Grid Layout */
@@ -27,6 +32,8 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -34,20 +41,21 @@
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
+/* Full-width image section */
 .card-image {
   background: #f7f7f7;
-  height: 160px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
 }
 
 .card-image img {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
+/* Card Text Content */
 .card-content {
   padding: 20px;
   text-align: left;
@@ -70,9 +78,22 @@
 
 .card-content ul li {
   margin-bottom: 6px;
+  position: relative;
+  padding-left: 28px;
 }
 
-/* Button */
+.card-content ul li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: green;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-left: 4px;
+}
+
+/* Register Button */
 .register-btn {
   display: block;
   width: 100%;
@@ -84,21 +105,47 @@
   padding: 12px;
   cursor: pointer;
   transition: background 0.3s ease;
+  margin-bottom: 20px; /* Added bottom margin */
 }
 
 .register-btn:hover {
   background: #e6006e;
 }
 
-/* Responsive */
+/* ---------- Responsive Grid Layout ---------- */
+
+/* Tablets */
 @media (min-width: 600px) {
   .card-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* Desktops */
 @media (min-width: 900px) {
   .card-container {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Small devices (optional fine-tuning) */
+@media (max-width: 599px) {
+  .section-title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .card-content h3 {
+    font-size: 18px;
+  }
+
+  .card-content ul {
+    font-size: 13px;
+  }
+
+  .register-btn {
+    font-size: 15px;
+    padding: 10px;
   }
 }
