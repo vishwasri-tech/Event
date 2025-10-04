@@ -7,35 +7,42 @@
   max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
+  align-items: flex-start;
 }
 
+/* LEFT SIDE INFO */
 .contact-info {
   flex: 1 1 350px;
-  padding-right: 20px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .contact-info h2 {
   color: #141572;
   font-size: 26px;
   margin-bottom: 10px;
+  text-align: left;
 }
 
 .contact-info p {
   color: #141572;
   margin-bottom: 25px;
+  text-align: left;
 }
 
 .info-list {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  align-items: flex-start;
 }
 
 .info-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   color: #141572;
   font-size: 15px;
+  text-align: left;
 }
 
 .icon-img {
@@ -49,24 +56,28 @@
   line-height: 1.5;
 }
 
-/* FORM STYLES */
+/* FORM */
 .contact-form {
   flex: 1 1 400px;
-  background: #fff;
-  padding: 30px;
+  background: none !important;
+  padding: 30px 20px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  margin-top: 0; /* ✅ change #1 */
 }
 
 .contact-form form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .form-group {
   margin-bottom: 18px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .form-group label {
@@ -74,27 +85,29 @@
   color: #555;
   margin-bottom: 6px;
   font-weight: 500;
-  justify-content: flex-start;
-  align-self: flex-start;
+  text-align: left;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 10px 12px;
-  font-size: 14px;
+  padding: 12px 14px;
+  font-size: 15px;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   resize: none;
+  box-sizing: border-box;
 }
 
 .form-group textarea {
   min-height: 120px;
 }
 
+/* ✅ change #2: center the button */
 .button-container {
-  text-align: center;
+  text-align: center; /* centers the button horizontally */
+  width: 100%;
 }
 
 .contact-form button {
@@ -102,17 +115,21 @@
   color: white;
   border: none;
   padding: 12px 30px;
-  font-size: 14px;
+  font-size: 15px;
   border-radius: 20px;
   cursor: pointer;
   transition: 0.3s ease;
+  margin: 0 auto; /* ensure button stays centered */
+  display: inline-block; /* allow centering */
 }
 
 .contact-form button:hover {
   opacity: 0.9;
 }
 
-/* Responsive */
+/* ---------------------- */
+/* TABLET VIEW */
+/* ---------------------- */
 @media (max-width: 768px) {
   .contact-section {
     flex-direction: column;
@@ -122,29 +139,51 @@
   .contact-info,
   .contact-form {
     flex: 1 1 100%;
-    padding: 0;
+    padding: 0 20px;
+    margin-left: 0; /* ✅ ensure equal left alignment */
   }
 
   .contact-form {
-    margin-top: 20px;
-  }
-
-  .form-group input,
-  .form-group textarea {
-    font-size: 15px;
-  }
-
-  .contact-form button {
+    margin-top: 25px;
     width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .contact-info h2,
+  .contact-info p {
+    text-align: left;
+  }
+
+  .info-list {
+    align-items: flex-start;
+  }
+
+  /* ✅ Center button for tablet */
+  .contact-form button {
+    width: auto;
+    max-width: 320px;
+    margin: 10px auto 0;
     display: block;
   }
 }
 
+/* ---------------------- */
+/* MOBILE VIEW */
+/* ---------------------- */
 @media (max-width: 480px) {
   .contact-section {
     padding: 30px 15px;
+  }
+
+  .contact-info,
+  .contact-form {
+    padding: 0 15px;
+  }
+
+  .contact-form form,
+  .contact-info {
+    width: 100%;
+    margin-left: 0; /* ✅ keep left aligned */
   }
 
   .contact-info h2 {
@@ -154,6 +193,17 @@
   .contact-info p,
   .info-item {
     font-size: 14px;
+    text-align: left;
+  }
+
+  .info-item {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .icon-img {
+    margin-right: 10px;
   }
 
   .form-group label {
@@ -163,10 +213,21 @@
   .form-group input,
   .form-group textarea {
     font-size: 14px;
+    padding: 10px 12px;
   }
 
+  .contact-form {
+    padding: 20px 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* ✅ Center button for mobile */
   .contact-form button {
     font-size: 14px;
     padding: 10px 25px;
+    width: auto;
+    display: block;
+    margin: 12px auto 0;
   }
 }

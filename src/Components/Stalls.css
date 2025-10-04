@@ -1,0 +1,168 @@
+.stalls {
+  /* background: #e9e6ff; */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.stalls-container {
+  background: #fff;
+  padding: 50px 60px;
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 700px;
+}
+
+.form-title {
+  color: #0c0d60;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  color: #333;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #457bff;
+  outline: none;
+}
+
+.info-text {
+  color: #777;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* ✅ FIX: Checkbox aligned like form inputs */
+/* ✅ FIXED: Terms aligned with input fields */
+/* Align checkbox with input text */
+.form-group.terms {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-left: 12px; /* ✅ aligns with input text inside the box */
+}
+
+
+
+.form-group.terms label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+.form-group.terms input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #457bff; /* optional for modern browsers */
+}
+
+/* Button styles */
+.button-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.submit-btn {
+  background: linear-gradient(to right, #ff6bb1, #f5007a);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 35px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .stalls-container {
+    padding: 40px 30px;
+  }
+
+  .form-title {
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .submit-btn {
+    width: 80%;
+  }
+
+  .form-group.terms label {
+    font-size: 13.5px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .stalls-container {
+    padding: 30px 20px;
+  }
+
+  .form-title {
+    font-size: 20px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .form-group.terms {
+    gap: 6px;
+  }
+
+  .form-group.terms label {
+    font-size: 13.5px;
+    flex-wrap: wrap; /* wraps long text gracefully on very small screens */
+  }
+
+  .submit-btn {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
