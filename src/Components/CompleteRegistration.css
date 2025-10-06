@@ -1,0 +1,104 @@
+/* Background container */
+.registration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f3f0ff;
+  padding: 20px;
+}
+
+/* Card box */
+.registration-card {
+  position: relative;
+  background: #fff;
+  padding: 25px 30px;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Close button (top-right corner) */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Title */
+.registration-card h2 {
+  font-size: 18px;
+  color: #1f1f7a;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Paragraph text */
+.registration-card p {
+  font-size: 14px;
+  color: #333;
+  margin: 8px 0;
+}
+
+/* Strong labels */
+.registration-card strong {
+  color: #000;
+}
+
+/* Payment list */
+.registration-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0 20px 0;
+}
+
+.registration-card li {
+  font-size: 14px;
+  margin: 5px 0;
+  color: green;
+  font-weight: 500;
+}
+
+/* Pay button */
+.pay-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(90deg, #ff007f, #ff4dd2);
+  color: white;
+  border: none;
+  padding: 12px 0;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.pay-btn:hover {
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .registration-card {
+    padding: 20px;
+  }
+
+  .registration-card h2 {
+    font-size: 16px;
+  }
+
+  .pay-btn {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+}

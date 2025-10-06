@@ -6,12 +6,19 @@ import WhatsHappening from './Components/WhatsHappening';
 import RegisterSection from './Components/Register';
 import WhyAttend from './Components/WhyAttend';
 import ContactSection from './Components/Contact';
-import RegisterPage1 from './Components/Register1'; // ✅ import new Register Page 1
-import RegisterPage2 from './Components/Register2'; // ✅ optional: second registration step
+import RegisterPage1 from './Components/Register1'; 
+import RegisterPage2 from './Components/Register2'; 
 import Stalls from './Components/Stalls';
 import Sponsorship from './Components/Sponsorship';
+import BuyTickets from './Components/Tickets';
+import RegistrationSuccess from './Components/Success';
+import RegistrationCard from './Components/CompleteRegistration';
+import RegistrationSuccess1 from './Components/Registrationsuccess';
+
 
 import './App.css';
+import PrivacyPolicy from './Components/Privacy';
+import TermsConditions from './Components/Terms';
 
 function App() {
   return (
@@ -39,6 +46,12 @@ function App() {
           <Route path="/register/competition" element={<RegisterPage2 />} />
             <Route path="/stalls" element={<Stalls/>} />
               <Route path="/sponsorship" element={<Sponsorship/>} />
+               <Route path="/tickets" element={<BuyTickets/>} />
+                <Route path="/completeregistration" element={<RegistrationCard/>} />
+                 <Route path="/success" element={<RegistrationSuccess/>} />
+                  <Route path="/privacy" element={<PrivacyPolicy/>} />
+                   <Route path="/terms" element={<TermsConditions/>} />
+                    <Route path="/registrationsuccess" element={<RegistrationSuccess1/>} />
         </Routes>
       </div>
     </Router>

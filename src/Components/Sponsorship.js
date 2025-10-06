@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import "./Sponsorship.css";
+import { useNavigate } from "react-router-dom"; 
+
 
 const Sponsorship = () => {
+  const navigate = useNavigate(); 
+  const handleSponsorshipRegistrationClick = () => {
+        
+    navigate("/completeregistration"); // ✅ Navigate to RegisterPage1 route
+  };
   const [formData, setFormData] = useState({
     name: "",
     competition: "",
@@ -14,7 +21,7 @@ const Sponsorship = () => {
     "Platinum",
     "Gold",
     "Silver",
-    "Platinum",
+    "Bronze",
    
   ];
 
@@ -102,7 +109,7 @@ const Sponsorship = () => {
           </div>
 
           <div className="button-container">
-            <button type="button" className="submit-btn">
+            <button type="button" className="submit-btn" onClick={handleSponsorshipRegistrationClick}>
               Proceed To Payment
             </button>
           </div>

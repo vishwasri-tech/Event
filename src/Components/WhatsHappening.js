@@ -44,7 +44,7 @@ const WhatsHappening = () => {
             Whether you’re coming solo, as a couple, with family, or want a premium VIP experience,
             we have tickets tailored for everyone. Enjoy full access to competitions, stalls, entertainment, and more.
           </p>
-          <button className="ticket-btn">Grab Your Ticket</button>
+          <button className="ticket-btn" >Grab Your Ticket</button>
         </div>
 
         <div className="ticket-image">

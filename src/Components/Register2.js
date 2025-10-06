@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import "./Register2.css";
+import { useNavigate } from "react-router-dom"; 
 
 const RegisterPage2 = () => {
+  const navigate = useNavigate(); 
+  const handlePaymentClick = () => {
+        
+    navigate("/completeregistration"); // ✅ Navigate to RegisterPage1 route
+  };
   const [formData, setFormData] = useState({
     name: "",
     competition: "",
@@ -102,7 +108,7 @@ const RegisterPage2 = () => {
           </div>
 
           <div className="button-container">
-            <button type="button" className="submit-btn">
+            <button type="button" className="submit-btn" onClick={handlePaymentClick}>
               Proceed To Payment
             </button>
           </div>
