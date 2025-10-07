@@ -1,10 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Terms.css";
 
 const TermsConditions = () => {
+  const navigate = useNavigate();
+
+  const handleClose = () => {
+    navigate(-1); // Navigate back to previous page
+  };
+
   return (
     <div className="terms-container">
       <div className="terms-card">
+        <button className="close-button" onClick={handleClose} aria-label="Close">×</button>
+
         <h2>Terms & Conditions</h2>
         <h3>Vishwasri Technologies – Event Terms & Conditions</h3>
         <p>

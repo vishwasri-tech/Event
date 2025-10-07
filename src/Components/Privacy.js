@@ -1,10 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Privacy.css";
 
 const PrivacyPolicy = () => {
+  const navigate = useNavigate();
+
+  const handleClose = () => {
+    navigate(-1); // Navigate to previous page
+  };
+
   return (
     <div className="privacy-container">
       <div className="privacy-card">
+        <button className="close-button" onClick={handleClose} aria-label="Close">×</button>
+
         <h2>Privacy Policy</h2>
         <h3>Vishwasri Technologies – Privacy Policy</h3>
         <p>
@@ -65,9 +74,7 @@ const PrivacyPolicy = () => {
           </li>
         </ol>
 
-        <p>
-          By registering for the event, you consent to this Privacy Policy.
-        </p>
+        <p>By registering for the event, you consent to this Privacy Policy.</p>
       </div>
     </div>
   );

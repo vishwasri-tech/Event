@@ -14,11 +14,14 @@ import BuyTickets from './Components/Tickets';
 import RegistrationSuccess from './Components/Success';
 import RegistrationCard from './Components/CompleteRegistration';
 import RegistrationSuccess1 from './Components/Registrationsuccess';
+import RefundPolicy from './Components/Refund';
 
 
 import './App.css';
 import PrivacyPolicy from './Components/Privacy';
 import TermsConditions from './Components/Terms';
+import TicketForm from './Components/TicketForm';
+import RegistrationDisplay from './Components/RegistrationDisplay';
 
 function App() {
   return (
@@ -52,6 +55,9 @@ function App() {
                   <Route path="/privacy" element={<PrivacyPolicy/>} />
                    <Route path="/terms" element={<TermsConditions/>} />
                     <Route path="/registrationsuccess" element={<RegistrationSuccess1/>} />
+                      <Route path="/refund-policy" element={<RefundPolicy/>} />
+                       <Route path="/ticketform" element={<TicketForm/>} />
+                       <Route path="/registrationdisplay" element={<RegistrationDisplay/>} />
         </Routes>
       </div>
     </Router>

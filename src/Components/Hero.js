@@ -136,7 +136,7 @@ const EventHero = () => {
           <p onClick={() => { setMenuOpen(false); navigate("/privacy"); }}>
             Privacy Policy
           </p>
-          <p onClick={() => { setMenuOpen(false); navigate("/cancellation"); }}>
+          <p onClick={() => { setMenuOpen(false); navigate("/refund-policy"); }}>
             Cancellation Policy
           </p>
         </div>

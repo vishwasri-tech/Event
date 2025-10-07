@@ -1,0 +1,93 @@
+.refund-policy-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.policy-box {
+  background: white;
+  max-width: 800px;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  text-align: left; /* Ensures all content inside box is left-aligned by default */
+}
+
+/* Explicitly align text-based elements */
+h2, h3, h4, p, ul, li {
+  text-align: left;
+}
+
+/* Headings */
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 16px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+/* List styling */
+ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* Link styling */
+a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Close (X) button styling */
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .policy-box {
+    padding: 20px;
+  }
+
+  .close-button {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3, h4 {
+    font-size: 16px;
+  }
+}

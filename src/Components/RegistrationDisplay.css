@@ -1,0 +1,74 @@
+/* RegistrationDetails.css */
+
+/* Wrapper to center the container */
+.registration-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.97); /* optional dim background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Centered card */
+.registration-container2 {
+  width: 100%;
+  max-width: 700px;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.registration-container2 h2 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  color: #111;
+}
+
+.registration-details p {
+  font-size: 1.1rem;
+  margin: 0.7rem 0;
+}
+
+.registration-details strong {
+  font-weight: 600;
+  color: #000;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .registration-container2 {
+    margin: 0 1rem;
+    padding: 1.5rem;
+  }
+
+  .registration-container2 h2 {
+    font-size: 1.3rem;
+  }
+
+  .registration-details p {
+    font-size: 1rem;
+  }
+
+  .close-button {
+    font-size: 1.5rem;
+  }
+}

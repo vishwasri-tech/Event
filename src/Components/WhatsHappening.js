@@ -1,5 +1,6 @@
 import React from "react";
 import "./WhatsHappening.css";
+import { useNavigate } from "react-router-dom";
 
 import competitionsIcon from "../assets/bulb.png";
 import stallsIcon from "../assets/bulb.png";
@@ -8,6 +9,10 @@ import networkingIcon from "../assets/bulb.png";
 import ticketPhone from "../assets/phn.png";
 
 const WhatsHappening = () => {
+    const navigate = useNavigate();
+     const handleTicketFormClick = () => {
+    navigate("/registrationdisplay");
+  };
   return (
     <div className="whats-happening-section">
       <div className="whats-happening">
@@ -44,7 +49,7 @@ const WhatsHappening = () => {
             Whether you’re coming solo, as a couple, with family, or want a premium VIP experience,
             we have tickets tailored for everyone. Enjoy full access to competitions, stalls, entertainment, and more.
           </p>
-          <button className="ticket-btn" >Grab Your Ticket</button>
+          <button className="ticket-btn" onClick= {handleTicketFormClick} >Grab Your Ticket</button>
         </div>
 
         <div className="ticket-image">

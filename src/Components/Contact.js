@@ -25,7 +25,7 @@ const ContactSection = () => {
 
           <div className="info-item">
             <img src={email} alt="Email" className="icon-img" />
-            <span className="info-text">Vishwasritechnologies@Vishcom.Info</span>
+            <span className="info-text">vishwasritechnologies@vishcom.Info</span>
           </div>
         </div>
       </div>
