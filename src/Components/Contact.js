@@ -3,6 +3,7 @@ import "./Contact.css";
 import phone from "../assets/phone.png";
 import whatsapp from "../assets/whatsapp.png";
 import emailIcon from "../assets/mail.png";
+import location from "../assets/MapPin.png";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ const ContactSection = () => {
   const [errors, setErrors] = useState({});
 
   // ✅ WhatsApp Integration
-  const phoneNumber = "917330669716"; // your WhatsApp number with country code (no +)
+  const phoneNumber = "917330669716"; // WhatsApp number with country code
   const presetMessage = "Hi, I would like to enquire about your services.";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
     presetMessage
@@ -29,13 +30,17 @@ const ContactSection = () => {
       newErrors.name = "Name is required";
     }
 
-    // Mobile validation: must be 10 digits only
-    if (!/^[6-9]\d{9}$/.test(formData.mobile)) {
+    // Mobile validation (10 digits, starts 6-9)
+    if (!/^[6-9]\d{9}$/.test(formData.mobile.trim())) {
       newErrors.mobile = "Enter a valid 10-digit mobile number";
     }
 
     // Email validation
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+        formData.email.trim().toLowerCase()
+      )
+    ) {
       newErrors.email = "Enter a valid email address";
     }
 
@@ -71,6 +76,7 @@ const ContactSection = () => {
       const data = await res.json();
       alert(data.message || "Form submitted successfully!");
 
+      // Reset form
       setFormData({ name: "", mobile: "", email: "", message: "" });
       setErrors({});
     } catch (err) {
@@ -84,7 +90,7 @@ const ContactSection = () => {
       {/* Contact Info */}
       <div className="contact-info">
         <h2>Contact Us</h2>
-        <p>We’re Here To Help You…...</p>
+        <p>Want to know more about the event? Contact us and let’s stay connected.</p>
 
         <div className="info-list">
           <div className="info-item">
@@ -92,9 +98,10 @@ const ContactSection = () => {
             <span className="info-text">73306 69716, 93478 50568</span>
           </div>
 
+         
+
           <div className="info-item">
             <img src={whatsapp} alt="WhatsApp" className="icon-img" />
-            {/* ✅ WhatsApp chat link integrated */}
             <a
               href={whatsappUrl}
               target="_blank"
@@ -111,12 +118,18 @@ const ContactSection = () => {
               vishwasritechnologies@vishcom.info
             </span>
           </div>
+           <div className="info-item">
+            <img src={location} alt="Location" className="icon-img" />
+            <span className="info-text">
+              Arya One Building, Sindhi Colony, Begumpet, Hyderabad, Telangana 500003
+            </span>
+          </div>
         </div>
       </div>
 
       {/* Contact Form */}
       <div className="contact-form">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} autoComplete="off">
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input
@@ -161,6 +174,7 @@ const ContactSection = () => {
             <textarea
               id="message"
               name="message"
+              rows="4"
               value={formData.message}
               onChange={handleChange}
               required
@@ -178,4 +192,3 @@ const ContactSection = () => {
 };
 
 export default ContactSection;
-

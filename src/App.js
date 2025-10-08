@@ -22,6 +22,7 @@ import PrivacyPolicy from './Components/Privacy';
 import TermsConditions from './Components/Terms';
 import TicketForm from './Components/TicketForm';
 import RegistrationDisplay from './Components/RegistrationDisplay';
+import Footer from './Components/Footer';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
                 <RegisterSection />
                 <WhyAttend />
                 <ContactSection />
+                <Footer/>
               </>
             }
           />

@@ -47,15 +47,16 @@
 
 .icon-img {
   width: 22px;
-  height: 22px;
+  height: auto;
   margin-right: 12px;
   flex-shrink: 0;
 }
 
 .info-text {
   line-height: 1.5;
- 
   font-weight: 700;
+ color: #141572 !important;
+
  
 }
 
