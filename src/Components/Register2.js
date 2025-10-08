@@ -1,13 +1,11 @@
+
 import React, { useState } from "react";
 import "./Register2.css";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage2 = () => {
-  const navigate = useNavigate(); 
-  const handlePaymentClick = () => {
-        
-    navigate("/completeregistration"); // ✅ Navigate to RegisterPage1 route
-  };
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     competition: "",
@@ -15,6 +13,8 @@ const RegisterPage2 = () => {
     mobile: "",
     terms: false,
   });
+
+  const [loading, setLoading] = useState(false);
 
   const competitions = [
     "Tech",
@@ -30,6 +30,76 @@ const RegisterPage2 = () => {
       ...formData,
       [name]: type === "checkbox" ? checked : value,
     });
+  };
+
+   const validateForm = () => {
+    const nameRegex = /^[A-Za-z\s]+$/; // alphabets + spaces only
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // standard email pattern
+    const mobileRegex = /^[0-9]{10}$/; // only 10 digits
+
+    if (!formData.name.trim()) {
+      alert("⚠️ Name is required.");
+      return false;
+    }
+    if (!nameRegex.test(formData.name)) {
+      alert("⚠️ Name should contain only alphabets and spaces.");
+      return false;
+    }
+    if (!formData.competition) {
+      alert("⚠️ Please select a competition.");
+      return false;
+    }
+    if (!formData.email.trim()) {
+      alert("⚠️ Email is required.");
+      return false;
+    }
+    if (!emailRegex.test(formData.email)) {
+      alert("⚠️ Please enter a valid email address.");
+      return false;
+    }
+    if (!formData.mobile.trim()) {
+      alert("⚠️ Mobile number is required.");
+      return false;
+    }
+    if (!mobileRegex.test(formData.mobile)) {
+      alert("⚠️ Mobile number should have only 10 digits.");
+      return false;
+    }
+    if (!formData.terms) {
+      alert("⚠️ Please accept the Terms and Conditions.");
+      return false;
+    }
+
+    return true; // ✅ all checks passed
+  };
+
+  const handlePaymentClick = async () => {
+    // Run validation before submission
+    if (!validateForm()) return;
+
+    try {
+      setLoading(true);
+
+      const response = await fetch("http://192.168.1.6:5000/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert(" Registration successful!");
+        navigate("/completeregistration"); // Navigate after success
+      } else {
+        alert(data.message || "Registration failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during registration:", error);
+      alert(" Server error. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -58,10 +128,11 @@ const RegisterPage2 = () => {
             >
               <option value="">Select Competition</option>
               {competitions.map((c) => (
-                <option key={c}>{c}</option>
+                <option key={c} value={c}>
+                  {c}
+                </option>
               ))}
             </select>
-          
           </div>
 
           <div className="form-group">
@@ -103,13 +174,18 @@ const RegisterPage2 = () => {
                 checked={formData.terms}
                 onChange={handleChange}
               />
-              &nbsp; * Terms and Conditions 
+              &nbsp; * Terms and Conditions
             </label>
           </div>
 
           <div className="button-container">
-            <button type="button" className="submit-btn" onClick={handlePaymentClick}>
-              Proceed To Payment
+            <button
+              type="button"
+              className="submit-btn"
+              onClick={handlePaymentClick}
+              disabled={loading}
+            >
+              {loading ? "Submitting..." : "Proceed To Payment"}
             </button>
           </div>
         </form>
@@ -119,3 +195,4 @@ const RegisterPage2 = () => {
 };
 
 export default RegisterPage2;
+
