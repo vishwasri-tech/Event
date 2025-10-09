@@ -1,0 +1,38 @@
+.about-event {
+  max-width: 1200px;       /* keeps content neat on large screens */
+  margin: 40px auto;
+  padding: 0 20px;        /* padding for mobile */
+  font-family: "Arial", sans-serif;
+  line-height: 1.7;
+  color: #333;
+}
+
+.about-event h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #00008b;        
+  margin-bottom: 15px;
+}
+
+.about-event p {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.about-event strong {
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-event h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .about-event p {
+    font-size: 14px;
+    text-align: center;
+  }
+}

@@ -241,3 +241,34 @@
     margin-bottom: 20px;
   }
 }
+/* Paragraph under What's Happening heading */
+.whats-happening > p {
+  font-size: 17px;
+  color: #333;
+  max-width: 1400px;
+  margin: 0 0 40px 0;   /* spacing below heading */
+  line-height: 1.7;
+  text-align: left;     /* desktop = left aligned */
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+  .whats-happening > p {
+    font-size: 15px;
+    text-align: center; /* ✅ center on tablet */
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .whats-happening > p {
+    font-size: 14px;
+    text-align: center; /* ✅ center on mobile */
+    margin: 0 auto 25px auto;
+    line-height: 1.5;
+    padding: 0 10px;    /* ✅ little side padding for narrow screens */
+  }
+}
+

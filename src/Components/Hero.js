@@ -147,8 +147,7 @@ const EventHero = () => {
         <h1>
           Vishwasri Technologies
           <br />
-          Celebrating 1 Year of Innovation
-        </h1>
+       Marking One Year of Transforming Ideas into Technology</h1>
         <p className="date">Nov 13th, 2025, 📍 Event Venue</p>
         <p className="subtext">
           <em>

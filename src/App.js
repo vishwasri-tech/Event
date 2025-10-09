@@ -23,6 +23,7 @@ import TermsConditions from './Components/Terms';
 import TicketForm from './Components/TicketForm';
 import RegistrationDisplay from './Components/RegistrationDisplay';
 import Footer from './Components/Footer';
+import AboutEvent from './Components/About';
 
 function App() {
   return (
@@ -38,7 +39,9 @@ function App() {
                 <WhatsHappening />
                 <RegisterSection />
                 <WhyAttend />
+                  <AboutEvent/>
                 <ContactSection />
+              
                 <Footer/>
               </>
             }

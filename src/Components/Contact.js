@@ -95,7 +95,7 @@ const ContactSection = () => {
         <div className="info-list">
           <div className="info-item">
             <img src={phone} alt="Phone" className="icon-img" />
-            <span className="info-text">73306 69716, 93478 50568</span>
+            <span className="info-text">99082 08857, 93478 50568</span>
           </div>
 
          

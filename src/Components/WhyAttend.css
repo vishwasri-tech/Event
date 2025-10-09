@@ -145,6 +145,26 @@
   margin: 0 auto;
 }
 
+/* FUN BUTTON */
+.fun-btn {
+  background-color: #e91e63;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+
+  /* ✅ align with text block on desktop */
+  align-self: flex-start;
+}
+
+.fun-btn:hover {
+  opacity: 0.9;
+}
+
 /* ---------------- RESPONSIVE FIXES ---------------- */
 @media (max-width: 1200px) {
   .kids-zone-inner {
@@ -163,6 +183,11 @@
 
   .kids-zone-text p {
     font-size: 15px;
+  }
+
+  /* ✅ button centers on medium screens */
+  .fun-btn {
+    align-self: center;
   }
 }
 
@@ -230,5 +255,11 @@
     width: 90%;
     max-width: 350px;
     height: auto;
+  }
+
+  /* ✅ button centers nicely on small screens */
+  .fun-btn {
+    align-self: center;
+    margin-left: 0;
   }
 }

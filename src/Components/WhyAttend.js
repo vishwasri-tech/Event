@@ -68,10 +68,9 @@ const WhyAttend = () => {
           <div className="kids-zone-text">
             <h3>Kids Zone</h3>
             <p>
-              Kids can enjoy a full day of workshops, fun games, art corners,
-              STEM activities, and cultural shows, making the celebration
-              engaging and exciting for every age group.
+              A day bursting with joy - creative workshops, exciting games, art corners, STEM experiments, cultural performances, treasure hunts, obstacle courses, and surprise fun activities. A platform for young minds to explore, learn, imagine, and turn their ideas into reality.
             </p>
+             <button className="fun-btn" >Join the Fun!</button>
           </div>
           <div className="kids-zone-img">
             <img src={kidsZoneImg} alt="Kids Zone" />

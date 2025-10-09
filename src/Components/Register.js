@@ -1,8 +1,8 @@
 import React from "react";
 import "./Register.css"; 
-import competitions from "../assets/competitions.png";
-import stalls from "../assets/stalls.png";
-import sponsorship from "../assets/sponsorship.png";
+import competitions from "../assets/comp1.png";
+import stalls from "../assets/comp2.png";
+import sponsorship from "../assets/comp3.png";
 
 const RegisterSection = () => {
   const cards = [
@@ -10,7 +10,7 @@ const RegisterSection = () => {
       title: "Competitions",
       description: [
         "Tech • Clothing • Food • Startup Pitch • Fun Games",
-        "Prizes up to ₹50,000",
+        "Price money up to ₹1,00,000",
       ],
       img: competitions, 
       button: "Register Now",
@@ -19,7 +19,7 @@ const RegisterSection = () => {
       title: "Stalls",
       description: [
         "Food • Fashion • Tech • Art • Startups",
-        "From ₹30,000 onwards",
+        "From ₹40,000 onwards",
       ],
       img: stalls, 
       button: "Register Now",
@@ -28,7 +28,7 @@ const RegisterSection = () => {
       title: "Sponsorship",
       description: [
         "Platinum • Gold • Silver • Bronze",
-        "Stage Mentions • Branding • Stalls • Promotions",
+        "From Brand Awareness to Over all Event access",
       ],
       img: sponsorship, 
       button: "Register Now",
