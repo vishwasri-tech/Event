@@ -1,4 +1,10 @@
 
+
+
+
+
+
+
 import React, { useState } from "react";
 import "./Register2.css";
 import { useNavigate } from "react-router-dom";
@@ -12,30 +18,43 @@ const RegisterPage2 = () => {
     email: "",
     mobile: "",
     terms: false,
+    fee: "",
   });
 
   const [loading, setLoading] = useState(false);
 
-  const competitions = [
-    "Tech",
-    "Clothing",
-    "Food",
-    "Startup Pitch",
-    "Fun Competition",
-  ];
+  // Competition Prices
+  const competitionPrices = {
+    Tech: 1000,
+    Clothing: 1500,
+    Food: 1000,
+    "Startup Pitch": 3500,
+    "Fun Competition": 1500,
+  };
+
+  const competitions = Object.keys(competitionPrices);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
+
+    if (name === "competition") {
+      setFormData({
+        ...formData,
+        competition: value,
+        fee: competitionPrices[value] || "", // set base fee
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: type === "checkbox" ? checked : value,
+      });
+    }
   };
 
-   const validateForm = () => {
-    const nameRegex = /^[A-Za-z\s]+$/; // alphabets + spaces only
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // standard email pattern
-    const mobileRegex = /^[0-9]{10}$/; // only 10 digits
+  const validateForm = () => {
+    const nameRegex = /^[A-Za-z\s]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const mobileRegex = /^[0-9]{10}$/;
 
     if (!formData.name.trim()) {
       alert("⚠️ Name is required.");
@@ -70,42 +89,73 @@ const RegisterPage2 = () => {
       return false;
     }
 
-    return true; // ✅ all checks passed
+    return true;
   };
 
-  const handlePaymentClick = async () => {
-    // Run validation before submission
+  const handlePaymentClick = () => {
     if (!validateForm()) return;
 
-    try {
-      setLoading(true);
+    // 🧮 Calculate total fee with 18% GST (internally only)
+    const baseFee = Number(formData.fee);
+    const totalFee = baseFee + baseFee * 0.18;
 
-      const response = await fetch("http://192.168.1.6:5000/api/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        alert(" Registration successful!");
-        navigate("/completeregistration"); // Navigate after success
-      } else {
-        alert(data.message || "Registration failed. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error during registration:", error);
-      alert(" Server error. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
+    // ✅ Navigate to CompleteRegistration and pass data dynamically
+    navigate("/completeregistration", {
+      state: {
+        name: formData.name,
+        competition: formData.competition,
+        email: formData.email,
+        mobile: formData.mobile,
+        category: "Competition",
+        fee: totalFee.toFixed(2),
+      },
+    });
   };
 
   return (
     <div className="register-page2">
       <div className="register2-container">
         <h2 className="form-title">Competition Registration</h2>
+
+        {/* ✅ Keep your original content below untouched */}
+        <div className="showcase-section">
+          <h3>Showcase Your Talent — Compete & Win Big!</h3>
+          <p>
+            Step into the spotlight and prove your skills across four exciting competitions — 
+            <strong> Tech, Clothing, Food, and Startup Pitching.</strong>
+          </p>
+          <p>
+            Bring your ideas, creativity, and innovation to life and stand a chance to win exciting prizes and recognition!
+          </p>
+
+          <ul>
+            <li>
+              <strong>Tech Competition</strong> – Solve real–world problem statements and win 
+              <strong> ₹1,00,000</strong> for the best solution.
+            </li>
+            <li>
+              <strong>Clothing Competition</strong> – Unleash your creativity in fashion design and win 
+              <strong> ₹25,000</strong>.
+            </li>
+            <li>
+              <strong>Food Competition</strong> – Cook up your best recipe and win 
+              <strong> ₹20,000</strong> for your culinary brilliance.
+            </li>
+            <li>
+              <strong>Startup Pitching</strong> – Present your idea and win 
+              <strong> funding up to ₹5 Lakhs</strong> to turn your dream into reality.
+            </li>
+          </ul>
+
+          <p className="highlight">
+            Registration fees start as low as <strong>₹1,000</strong>, so don’t wait — 
+            this is your chance to shine, connect, and compete at 
+            <strong> Vishwasri Technologies’ grand celebration!</strong>
+          </p>
+          <p>
+            <strong>Register now and let your talent take the stage!</strong>
+          </p>
+        </div>
 
         <form>
           <div className="form-group">
@@ -139,6 +189,8 @@ const RegisterPage2 = () => {
             <label>Registration Fee</label>
             <input
               type="text"
+              name="fee"
+              value={formData.fee ? `₹${formData.fee}` : ""}
               readOnly
               placeholder="*(Auto-calculated based on selection)"
             />
@@ -195,4 +247,3 @@ const RegisterPage2 = () => {
 };
 
 export default RegisterPage2;
-

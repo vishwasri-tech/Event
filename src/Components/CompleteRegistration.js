@@ -1,79 +1,56 @@
+
+
+
+
+
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate, useLocation } from "react-router-dom"; 
 import "./CompleteRegistration.css";
 
 const RegistrationCard = () => {
-  const handleSuccessmodalClick= () => {
-        
-    navigate("/registrationsuccess"); // ✅ Navigate to RegisterPage1 route
-  };
-
-
   const navigate = useNavigate();
+  const location = useLocation();
+  const data = location.state || {};
+
   const [selectedPayment, setSelectedPayment] = useState("");
+
+  const handleSuccessmodalClick = () => {
+    navigate("/registrationsuccess", { state: data });
+  };
 
   return (
     <div className="registration-container">
       <div className="registration-card">
-        {/* Close Button */}
-        <button className="close-btn" onClick={() => navigate(-1)}>
-          ✕
-        </button>
-
-        {/* Title */}
+        <button className="close-btn" onClick={() => navigate(-1)}>✕</button>
         <h2>Complete Your Registration</h2>
 
-        {/* Details */}
-        <p><strong>Registration Type:</strong> Competition – Tech Hackathon</p>
-        <p><strong>Participant Name:</strong> Rohit Kumar</p>
-        <p><strong>Amount:</strong> ₹855</p>
+        <p><strong>Registration Type:</strong> {data.category || "Competition"}</p>
+        <p><strong>Participant Name:</strong> {data.name || "—"}</p>
+        {/* <p><strong>Event:</strong> {data.competition || "—"}</p> */}
+        <p><strong>Amount:</strong> ₹{data.fee || "—"}</p>
 
-        {/* Payment Options */}
         <p><strong>Choose Payment Option:</strong></p>
         <ul className="payment-options">
-          <li>
-            <label>
-              <input
-                type="radio"
-                name="payment"
-                value="upi"
-                checked={selectedPayment === "upi"}
-                onChange={(e) => setSelectedPayment(e.target.value)}
-              />
-              UPI (Google Pay / PhonePe / Paytm)
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                type="radio"
-                name="payment"
-                value="card"
-                checked={selectedPayment === "card"}
-                onChange={(e) => setSelectedPayment(e.target.value)}
-              />
-              Debit / Credit Card
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                type="radio"
-                name="payment"
-                value="netbanking"
-                checked={selectedPayment === "netbanking"}
-                onChange={(e) => setSelectedPayment(e.target.value)}
-              />
-              NetBanking
-            </label>
-          </li>
+          {["UPI (GooglePay/PhonePe/Paytm)", "Debit/Credit Card", "NetBanking"].map((type) => (
+            <li key={type}>
+              <label>
+                <input
+                  type="radio"
+                  name="payment"
+                  value={type}
+                  checked={selectedPayment === type}
+                  onChange={(e) => setSelectedPayment(e.target.value)}
+                />
+                {type}
+              </label>
+            </li>
+          ))}
         </ul>
 
-        {/* Pay Button */}
         <button
           className="pay-btn"
           disabled={!selectedPayment}
-         onClick={handleSuccessmodalClick}
+          onClick={handleSuccessmodalClick}
         >
           Pay Now
         </button>

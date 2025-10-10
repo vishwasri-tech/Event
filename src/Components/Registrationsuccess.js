@@ -1,31 +1,35 @@
+
+
+
+
+
 import React from "react";
-import { useNavigate } from "react-router-dom"; // ✅ import useNavigate
+import { useNavigate, useLocation } from "react-router-dom";
 import "./Registrationsuccess.css";
 
 const RegistrationSuccess1 = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const data = location.state || {};
 
   return (
     <div className="success-container">
       <div className="success-card">
-        {/* Close Button */}
-        <button className="close-btn" onClick={() => navigate(-1)}>✕</button>
-
-        {/* Title */}
+        <button className="close-btn" onClick={() => navigate("/")}>✕</button>
         <h2 className="success-title">Registration Successful</h2>
 
         <p className="success-message">
-          Thank you, Rohit! Your registration is confirmed.
+          Thank you, {data.name || "Participant"}! Your registration is confirmed.
         </p>
 
-        {/* Details */}
         <div className="details">
-          <strong>Registration ID:</strong> <span>REG12345</span>
+          <strong>Registration ID:</strong> <span>REG{Math.floor(Math.random() * 100000)}</span>
           <strong>Event Name:</strong> <span>Vishwasri Technologies 1st Anniversary</span>
-          <strong>Category:</strong> <span>Competition</span>
-          <strong>Competition Name:</strong> <span>Coding Challenge</span>
-          <strong>Fee Paid:</strong> <span>₹855</span>
-          <strong>Venue:</strong> <span>Vishwasri Technologies Campus</span>
+          <strong>Category:</strong> <span>{data.category || "Competition"}</span>
+          <strong>Competition:</strong> <span>{data.competition || "—"}</span>
+          <strong>Fee Paid:</strong> <span>₹{data.fee || "—"}</span>
+          {/* <strong>Email:</strong> <span>{data.email || "—"}</span>
+          <strong>Mobile:</strong> <span>{data.mobile || "—"}</span> */}
         </div>
       </div>
     </div>
