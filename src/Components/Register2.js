@@ -92,26 +92,52 @@ const RegisterPage2 = () => {
     return true;
   };
 
-  const handlePaymentClick = () => {
+  const handlePaymentClick = async() => {
     if (!validateForm()) return;
 
     // 🧮 Calculate total fee with 18% GST (internally only)
+    setLoading(true);
     const baseFee = Number(formData.fee);
     const totalFee = baseFee + baseFee * 0.18;
+    try {
+      const response = await fetch("http://192.168.1.4:5000/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          competition: formData.competition,
+          email: formData.email,
+          mobile: formData.mobile,
+          category: "Competition",
+          fee: totalFee.toFixed(2),
+        }),
+      });
 
-    // ✅ Navigate to CompleteRegistration and pass data dynamically
-    navigate("/completeregistration", {
-      state: {
-        name: formData.name,
-        competition: formData.competition,
-        email: formData.email,
-        mobile: formData.mobile,
-        category: "Competition",
-        fee: totalFee.toFixed(2),
-      },
-    });
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("✅ Registration Successful!");
+        // Navigate to CompleteRegistration page with form data
+        navigate("/completeregistration", {
+          state: {
+            name: formData.name,
+            competition: formData.competition,
+            email: formData.email,
+            mobile: formData.mobile,
+            category: "Competition",
+            fee: totalFee.toFixed(2),
+          },
+        });
+      } else {
+        alert(`❌ ${data.message || "Registration failed!"}`);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("❌ Something went wrong! Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
-
   return (
     <div className="register-page2">
       <div className="register2-container">

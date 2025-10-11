@@ -1,18 +1,10 @@
-
-
-
-
-
-
-
-
-
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
+import axios from "axios"; // ✅ Import axios for backend calls
 import "./Stalls.css";
 
 const Stalls = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -33,30 +25,76 @@ const Stalls = () => {
   };
 
   const validateForm = () => {
-    if (!formData.name || !formData.competition || !formData.email || !formData.mobile) {
-      alert("Please fill all fields before proceeding.");
+    const nameRegex = /^[A-Za-z\s]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const mobileRegex = /^[0-9]{10}$/;
+
+    if (!formData.name.trim()) {
+      alert("⚠️ Name is required.");
+      return false;
+    }
+    if (!nameRegex.test(formData.name)) {
+      alert("⚠️ Name should contain only alphabets and spaces.");
+      return false;
+    }
+    if (!formData.competition) {
+      alert("⚠️ Please select a competition.");
+      return false;
+    }
+    if (!formData.email.trim()) {
+      alert("⚠️ Email is required.");
+      return false;
+    }
+    if (!emailRegex.test(formData.email)) {
+      alert("⚠️ Please enter a valid email address.");
+      return false;
+    }
+    if (!formData.mobile.trim()) {
+      alert("⚠️ Mobile number is required.");
+      return false;
+    }
+    if (!mobileRegex.test(formData.mobile)) {
+      alert("⚠️ Mobile number should be 10 digits only.");
       return false;
     }
     if (!formData.terms) {
-      alert("Please accept the Terms and Conditions.");
+      alert("⚠️ Please accept the Terms and Conditions.");
       return false;
     }
+
     return true;
   };
 
-  const handleStallsClick = () => {
+  const handleStallsClick = async () => {
     if (!validateForm()) return;
 
     const baseFee = 40000;
     const feeWithGST = (baseFee * 1.18).toFixed(2);
 
-    navigate("/completeregistration", {
-      state: {
-        ...formData,
-        fee: feeWithGST,
-        category: "Stall",
-      },
-    });
+    const stallData = {
+      name: formData.name,
+      competition: formData.competition,
+      email: formData.email,
+      mobile: formData.mobile,
+      fee: feeWithGST,
+      category: "Stall",
+    };
+
+    try {
+      // ✅ Send data to backend API
+      const response = await axios.post("http://192.168.1.4:5000/api/stalls", stallData);
+
+      if (response.status === 201) {
+        alert("✅ Stall Registered Successfully!");
+        // Navigate to payment or next screen
+        navigate("/completeregistration", {
+          state: { ...stallData },
+        });
+      }
+    } catch (error) {
+      console.error("❌ Error while registering stall:", error);
+      alert("Something went wrong while registering your stall. Please try again.");
+    }
   };
 
   return (
@@ -64,37 +102,18 @@ const Stalls = () => {
       <div className="stalls-container">
         <h2 className="form-title">Stall Registration</h2>
 
-        {/* ✅ Your Original Stalls Info (Unchanged) */}
         <div className="stall-info">
           <h3>Book Your Stall — Showcase, Sell & Shine!</h3>
           <p>
-            Be part of the grand celebration by setting up your own stall! Whether you’re into 
-            <strong> Food, Fashion, Tech, Art, or Startups</strong>, this is your chance to 
-            connect with thousands of visitors, showcase your creativity, and grow your brand 
-            visibility. Each stall is crafted to help you make an impact — with the 
-            <strong> best marketing strategy provided throughout the event.</strong>
+            Be part of the grand celebration by setting up your own stall! Whether you’re into
+            <strong> Food, Fashion, Tech, Art, or Startups</strong>, this is your chance to
+            connect with thousands of visitors, showcase your creativity, and grow your brand
+            visibility.
           </p>
 
           <p className="highlight"><strong>Every stall starting from ₹40,000</strong></p>
-
-          <ul>
-            <li><strong>Food Stalls</strong> – Serve your best dishes, attract food lovers, and be part of the city’s most vibrant culinary experience.</li>
-            <li><strong>Clothing Stalls</strong> – Display your latest designs, connect with trendsetters, and make your brand the talk of the event.</li>
-            <li><strong>Tech Stalls</strong> – Present your innovations, interact with tech enthusiasts, and build your network with potential collaborators.</li>
-            <li><strong>Art Stalls</strong> – Showcase your creativity, sell your work, and inspire visitors through your artistic expression.</li>
-            <li><strong>Startup Stalls</strong> – Pitch your idea, promote your business, and gain visibility among investors and entrepreneurs.</li>
-          </ul>
-
-          <p>
-            Every stall includes <strong>branding opportunities, marketing visibility, and full-day event access</strong> — helping you reach more customers than ever.
-          </p>
-
-          <p className="highlight">
-            <strong>Showcase your brand, connect with thousands — Register your stall today!</strong>
-          </p>
         </div>
 
-        {/* ✅ Stall Form Section */}
         <form>
           <div className="form-group">
             <label>Stall Name</label>
@@ -161,7 +180,7 @@ const Stalls = () => {
                 checked={formData.terms}
                 onChange={handleChange}
               />
-              &nbsp; * Terms and Conditions 
+              &nbsp; * Terms and Conditions
             </label>
           </div>
 
