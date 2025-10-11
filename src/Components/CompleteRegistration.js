@@ -24,7 +24,7 @@ const RegistrationCard = () => {
         <button className="close-btn" onClick={() => navigate(-1)}>✕</button>
         <h2>Complete Your Registration</h2>
 
-        <p><strong>Registration Type:</strong> {data.category || "Competition"}</p>
+        <p><strong>Registration Type:</strong>  {data.competition || data.category || "—"}</p>
         <p><strong>Participant Name:</strong> {data.name || "—"}</p>
         {/* <p><strong>Event:</strong> {data.competition || "—"}</p> */}
         <p><strong>Amount:</strong> ₹{data.fee || "—"}</p>
