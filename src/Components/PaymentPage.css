@@ -1,0 +1,45 @@
+.payment-container {
+  position: relative;
+  max-width: 350px;
+  margin: auto;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #444;
+  cursor: pointer;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.pay-btn {
+  margin-top: 1.2rem;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(to right, #ff0099, #ff66cc);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .payment-container {
+    width: 90%;
+  }
+}

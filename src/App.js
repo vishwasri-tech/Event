@@ -15,6 +15,7 @@ import RegistrationSuccess from './Components/Success';
 import RegistrationCard from './Components/CompleteRegistration';
 import RegistrationSuccess1 from './Components/Registrationsuccess';
 import RefundPolicy from './Components/Refund';
+import SuccessPage from './Components/SuccessPage';
 
 
 import './App.css';
@@ -24,6 +25,7 @@ import TicketForm from './Components/TicketForm';
 import RegistrationDisplay from './Components/RegistrationDisplay';
 import Footer from './Components/Footer';
 import AboutEvent from './Components/About';
+import PaymentPage from './Components/PaymentPage';
 
 function App() {
   return (
@@ -63,6 +65,8 @@ function App() {
                       <Route path="/refund-policy" element={<RefundPolicy/>} />
                        <Route path="/ticketform" element={<TicketForm/>} />
                        <Route path="/registrationdisplay" element={<RegistrationDisplay/>} />
+                        <Route path="/paymentpage" element={<PaymentPage/>} />
+                        <Route path="/successpage" element={<SuccessPage/>} />
         </Routes>
       </div>
     </Router>
