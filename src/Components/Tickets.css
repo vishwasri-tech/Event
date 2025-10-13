@@ -1,11 +1,18 @@
 .ticket-container {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 100%;
   max-width: 300px;
-  margin: auto;
   background: #fff;
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  /* Let content decide height */
+  height: auto;
 }
 
 .close-btn {
@@ -42,10 +49,25 @@
   color: #fff;
   font-weight: 600;
   cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.proceed-btn:hover {
+  opacity: 0.9;
 }
 
 @media (max-width: 600px) {
   .ticket-container {
-    width: 90%;
+    width: 90%;           /* shrink width on mobiles */
+    padding: 1rem;        /* smaller padding */
+  }
+
+  .ticket-option {
+    font-size: 14px;      /* adjust font size */
+  }
+
+  .proceed-btn {
+    padding: 10px;
+    font-size: 14px;
   }
 }

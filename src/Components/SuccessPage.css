@@ -10,6 +10,10 @@
   font-family: "Inter", "Poppins", sans-serif;
   line-height: 1.6;
   color: #333;
+
+  /* Make it scale better */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Close Button (Top Right) */
@@ -31,7 +35,7 @@
 }
 
 /* Heading */
-.success-container h2 {
+.success-container1 h2 {
   color: #1e2b8c;
   font-size: 1.3rem;
   font-weight: 700;
@@ -39,26 +43,26 @@
 }
 
 /* Confirmation Message */
-.success-container > p {
+.success-container1 > p {
   font-size: 0.95rem;
   color: #444;
   margin-bottom: 1.4rem;
 }
 
 /* Ticket Details */
-.ticket-details {
+.ticket-details1 {
   background-color: #fff;
   text-align: left;
   padding: 0.5rem 0;
   border-top: 1px solid #eee;
 }
 
-.ticket-details p {
+.ticket-details1 p {
   margin: 0.4rem 0;
   font-size: 0.95rem;
 }
 
-.ticket-details strong {
+.ticket-details1 strong {
   display: inline-block;
   width: 120px;
   color: #111;
@@ -67,12 +71,41 @@
 
 /* Responsive */
 @media (max-width: 600px) {
-  .success-container {
-    width: 90%;
-    padding: 1.5rem;
+  .success-container1 {
+    width: 90%;           /* shrink width */
+    padding: 1.2rem;       /* reduce padding */
+    margin: 40px auto;     /* reduce top margin for smaller screens */
   }
 
-  .ticket-details strong {
-    width: 110px;
+  .success-container1 h2 {
+    font-size: 1.1rem;     /* smaller heading */
+  }
+
+  .success-container1 > p,
+  .ticket-details1 p {
+    font-size: 0.85rem;    /* smaller text */
+  }
+
+  .ticket-details1 strong {
+    width: 100px;          /* narrower labels */
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .success-container1 {
+    width: 95%;
+    padding: 1rem;
+    margin: 30px auto;
+  }
+
+  .ticket-details1 strong {
+    display: block;        /* stack label & value */
+    width: auto;
+    margin-bottom: 0.2rem;
+  }
+
+  .ticket-details1 p {
+    font-size: 0.8rem;
   }
 }

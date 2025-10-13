@@ -17,7 +17,7 @@ const SuccessPage = () => {
       <p>Thank you! Your ticket purchase is confirmed.</p>
 
       {ticketData.type && ticketData.amount ? (
-        <div className="ticket-details">
+        <div className="ticket-details1">
           <p><strong>Ticket ID:</strong> {ticketId}</p>
           <p><strong>Event Name:</strong> Anniversary Event</p>
           <p><strong>Type:</strong> {ticketData.type}</p>
