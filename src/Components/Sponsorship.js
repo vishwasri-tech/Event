@@ -5,9 +5,6 @@
 
 
 
-
-
-
 import React, { useState } from "react";
 import "./Sponsorship.css";
 import { useNavigate } from "react-router-dom";
@@ -24,6 +21,7 @@ const Sponsorship = () => {
   });
 
   const [amount, setAmount] = useState("");
+  const [showPopup, setShowPopup] = useState(false); // ✅ Added state for popup
 
   const sponsorshipPackages = {
     Bronze: "₹50,000",
@@ -62,16 +60,22 @@ const Sponsorship = () => {
   const handleSponsorshipRegistrationClick = () => {
     if (!validateForm()) return;
 
-    const baseAmount = parseInt(amount.replace(/[₹,]/g, "")) || 0;
-    const amountWithGST = (baseAmount * 1.18).toFixed(2);
+    // ✅ Show thank-you popup instead of navigating
+    setShowPopup(true);
 
-    navigate("/completeregistration", {
-      state: {
-        ...formData,
-        fee: amountWithGST,
-        category: "Sponsorship",
-      },
+    // Optionally reset the form
+    setFormData({
+      name: "",
+      competition: "",
+      email: "",
+      mobile: "",
+      terms: false,
     });
+    setAmount("");
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
   };
 
   return (
@@ -79,57 +83,26 @@ const Sponsorship = () => {
       <div className="sponsorship-container">
         <h2 className="form-title">Sponsorship Registration</h2>
 
-        {/* ✅ Your Original Sponsorship Content (Unchanged) */}
+        {/* Sponsorship Info (unchanged) */}
         <div className="sponsorship-info">
           <h3>Partner With Us — Power the Celebration of Innovation!</h3>
           <p>
             Join hands with us as a valued sponsor and make your brand a part of an
-            unforgettable celebration of creativity, technology, and talent. Each
-            sponsorship tier is crafted to give your business maximum visibility,
-            credibility, and engagement — with the best marketing strategy provided
-            throughout the event.
+            unforgettable celebration of creativity, technology, and talent.
           </p>
 
           <ul>
-            <li>
-              <strong>Bronze (₹50,000)</strong> – Build <strong>brand awareness</strong>, enjoy{" "}
-              <strong>stage presence</strong>, and connect directly with audiences
-              through event branding.
-            </li>
-            <li>
-              <strong>Silver (₹1,00,000)</strong> – Boost your{" "}
-              <strong>brand visibility</strong> with <strong>stage mentions</strong>,
-              logo highlights, and strong recognition across major event zones.
-            </li>
-            <li>
-              <strong>Gold (₹3,00,000)</strong> – Gain spotlight with{" "}
-              <strong>problem statement participation, stage presence</strong>, and impactful{" "}
-              <strong>brand awareness</strong>.
-            </li>
-            <li>
-              <strong>Platinum (₹4,50,000)</strong> – Receive{" "}
-              <strong>premium services from VT</strong>, contribute{" "}
-              <strong>problem statements</strong>, and enjoy expanded branding and stage time.
-            </li>
-            <li>
-              <strong>VIP Premium (₹8,00,000)</strong> – Unlock{" "}
-              <strong>complete event access, VIP lounge privileges</strong>, and{" "}
-              <strong>exclusive marketing benefits</strong> that amplify your brand throughout
-              the celebration.
-            </li>
+            <li><strong>Bronze (₹50,000)</strong> – Build brand awareness and enjoy stage presence.</li>
+            <li><strong>Silver (₹1,00,000)</strong> – Boost your brand visibility and recognition.</li>
+            <li><strong>Gold (₹3,00,000)</strong> – Gain spotlight and impactful brand awareness.</li>
+            <li><strong>Platinum (₹4,50,000)</strong> – Enjoy premium benefits and expanded branding.</li>
+            <li><strong>VIP Premium (₹8,00,000)</strong> – Unlock exclusive marketing privileges.</li>
           </ul>
 
-          <p>
-            Every sponsorship comes with <strong>strategic marketing support</strong> —
-            ensuring your brand reaches the right audience and leaves a lasting impression.
-          </p>
-
-          <h4>
-            Join us and lead the celebration — where your brand meets opportunity!
-          </h4>
+          <h4>Join us and lead the celebration — where your brand meets opportunity!</h4>
         </div>
 
-        {/* ✅ Sponsorship Form */}
+        {/* Sponsorship Form */}
         <form>
           <div className="form-group">
             <label>Company Name</label>
@@ -156,11 +129,6 @@ const Sponsorship = () => {
                 </option>
               ))}
             </select>
-          </div>
-
-          <div className="form-group">
-            <label>Sponsorship Amount</label>
-            <input type="text" readOnly value={amount} placeholder="Auto-filled" />
           </div>
 
           <div className="form-group">
@@ -203,13 +171,31 @@ const Sponsorship = () => {
               className="submit-btn"
               onClick={handleSponsorshipRegistrationClick}
             >
-              Proceed To Payment
+              Submit
             </button>
           </div>
         </form>
       </div>
+
+      {/* ✅ Popup Message */}
+      {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup-box">
+            <h3>Thank You!</h3>
+            <p>
+              Thank you for your interest in sponsoring <strong>[Event Name]</strong>.
+              <br />
+              Our team will get in touch with you shortly to discuss your sponsorship details.
+            </p>
+            <button className="close-popup" onClick={closePopup}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 export default Sponsorship;
+

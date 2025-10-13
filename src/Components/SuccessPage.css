@@ -49,7 +49,7 @@
   margin-bottom: 1.4rem;
 }
 
-/* Ticket Details */
+/* Ticket Details Section */
 .ticket-details1 {
   background-color: #fff;
   text-align: left;
@@ -57,41 +57,83 @@
   border-top: 1px solid #eee;
 }
 
+/* Each line of details */
 .ticket-details1 p {
   margin: 0.4rem 0;
   font-size: 0.95rem;
+  display: flex;
+  flex-wrap: wrap; /* allows wrapping to next line */
+  align-items: flex-start;
+  word-break: break-word;
 }
 
+/* Label (Left side) */
 .ticket-details1 strong {
-  display: inline-block;
-  width: 120px;
+  flex: 0 0 120px; /* fixed width label */
   color: #111;
   font-weight: 600;
+  word-break: break-word;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
+/* Value (Right side) */
+.ticket-details1 span {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+/* =====================
+   📱 Responsive Design
+   ===================== */
+
+/* Medium Devices (Tablets, Small Screens) */
+@media (max-width: 768px) {
   .success-container1 {
-    width: 90%;           /* shrink width */
-    padding: 1.2rem;       /* reduce padding */
-    margin: 40px auto;     /* reduce top margin for smaller screens */
+    width: 90%;
+    padding: 1.5rem;
+    margin: 60px auto;
   }
 
   .success-container1 h2 {
-    font-size: 1.1rem;     /* smaller heading */
+    font-size: 1.15rem;
   }
 
   .success-container1 > p,
   .ticket-details1 p {
-    font-size: 0.85rem;    /* smaller text */
+    font-size: 0.9rem;
   }
 
   .ticket-details1 strong {
-    width: 100px;          /* narrower labels */
+    flex: 0 0 110px;
+  }
+}
+
+/* Small Devices (Phones) */
+@media (max-width: 600px) {
+  .success-container1 {
+    width: 90%;
+    padding: 1.2rem;
+    margin: 40px auto;
+  }
+
+  .success-container1 h2 {
+    font-size: 1.1rem;
+  }
+
+  .success-container1 > p,
+  .ticket-details1 p {
+    font-size: 0.85rem;
+  }
+
+  .ticket-details1 strong {
+    flex: 0 0 100px;
     font-size: 0.85rem;
   }
 }
 
+/* Very Small Devices (Narrow phones like 320px–400px) */
 @media (max-width: 400px) {
   .success-container1 {
     width: 95%;
@@ -99,13 +141,17 @@
     margin: 30px auto;
   }
 
-  .ticket-details1 strong {
-    display: block;        /* stack label & value */
-    width: auto;
-    margin-bottom: 0.2rem;
+  .ticket-details1 p {
+    flex-direction: column; /* stack label above value */
   }
 
-  .ticket-details1 p {
+  .ticket-details1 strong {
+    width: 100%;
+    margin-bottom: 0.2rem;
+    flex: unset;
+  }
+
+  .ticket-details1 span {
     font-size: 0.8rem;
   }
 }
