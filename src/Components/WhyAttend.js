@@ -1,5 +1,6 @@
 import React from "react";
 import "./WhyAttend.css";
+import { useNavigate } from "react-router-dom";
 
 import startupsIcon from "../assets/startups.png";
 import studentsIcon from "../assets/students.png";
@@ -8,6 +9,10 @@ import foodiesIcon from "../assets/foodies.png";
 import kidsZoneImg from "../assets/kidszone.png";
 
 const WhyAttend = () => {
+    const navigate = useNavigate();
+       const handleTicketFormClick = () => {
+    navigate("/tickets");
+  };
   return (
     <section className="why-attend-section">
       <h2 className="why-title">Why Attend?</h2>
@@ -70,7 +75,7 @@ const WhyAttend = () => {
             <p>
               A day bursting with joy - creative workshops, exciting games, art corners, STEM experiments, cultural performances, treasure hunts, obstacle courses, and surprise fun activities. A platform for young minds to explore, learn, imagine, and turn their ideas into reality.
             </p>
-             <button className="fun-btn" >Join the Fun!</button>
+             <button className="fun-btn"  onClick= {handleTicketFormClick} >Join the Fun!</button>
           </div>
           <div className="kids-zone-img">
             <img src={kidsZoneImg} alt="Kids Zone" />

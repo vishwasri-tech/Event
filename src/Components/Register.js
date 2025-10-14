@@ -1,19 +1,24 @@
+
 import React from "react";
-import "./Register.css"; 
+import { useNavigate } from "react-router-dom";
+import "./Register.css";
 import competitions from "../assets/comp1.png";
 import stalls from "../assets/comp2.png";
 import sponsorship from "../assets/comp3.png";
 
 const RegisterSection = () => {
+  const navigate = useNavigate();
+
   const cards = [
     {
       title: "Competitions",
       description: [
         "Tech • Clothing • Food • Startup Pitch • Fun Games",
-        "Price money up to ₹1,00,000",
+        "Prize money up to ₹1,00,000",
       ],
-      img: competitions, 
+      img: competitions,
       button: "Register Now",
+      path: "/register/competition",
     },
     {
       title: "Stalls",
@@ -21,19 +26,25 @@ const RegisterSection = () => {
         "Food • Fashion • Tech • Art • Startups",
         "From ₹40,000 onwards",
       ],
-      img: stalls, 
+      img: stalls,
       button: "Register Now",
+      path: "/stalls",
     },
     {
       title: "Sponsorship",
       description: [
         "Platinum • Gold • Silver • Bronze",
-        "From Brand Awareness to Over all Event access",
+        "From Brand Awareness to Overall Event Access",
       ],
-      img: sponsorship, 
+      img: sponsorship,
       button: "Register Now",
+      path: "/sponsorship",
     },
   ];
+
+  const handleNavigate = (path) => {
+    navigate(path);
+  };
 
   return (
     <section className="register-section">
@@ -50,13 +61,18 @@ const RegisterSection = () => {
             {/* Content */}
             <div className="card-content">
               <h3>{card.title}</h3>
-             <ul>
-  {card.description.map((item, i) => (
-    <li key={i}>{item}</li>
-  ))}
-</ul>
+              <ul>
+                {card.description.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
 
-              <button className="register-btn">{card.button}</button>
+              <button
+                className="register-btn"
+                onClick={() => handleNavigate(card.path)}
+              >
+                {card.button}
+              </button>
             </div>
           </div>
         ))}

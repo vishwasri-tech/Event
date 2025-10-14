@@ -12,69 +12,82 @@ const PrivacyPolicy = () => {
   return (
     <div className="privacy-container">
       <div className="privacy-card">
-        <button className="close-button" onClick={handleClose} aria-label="Close">×</button>
+        <button className="close-button" onClick={handleClose} aria-label="Close">
+          ×
+        </button>
 
-        <h2>Privacy Policy</h2>
-        <h3>Vishwasri Technologies – Privacy Policy</h3>
+        <h2>Privacy Policy – Vishwasri Technologies</h2>
+        <p><strong>Last Updated:</strong> [14-10-2025]</p>
+
         <p>
-          At Vishwasri Technologies, we value your privacy. This Privacy Policy explains how we
-          collect, use, and protect your personal information for the 1st Anniversary Event.
+          At <strong>Vishwasri Technologies</strong>, we value your privacy and are committed to
+          protecting your personal information. This Privacy Policy explains how we collect, use,
+          and safeguard your data for our <strong>1st Anniversary Event</strong> and related
+          services.
         </p>
 
-        <ol>
-          <li>
-            <b>Information We Collect</b>
-            <ul>
-              <li>Name, email, phone number, payment details, registration details.</li>
-              <li>Cookies and usage data for website functionality.</li>
-            </ul>
-          </li>
+        <h3>Information We Collect</h3>
+        <p>
+          We may collect your name, email, phone number, registration details, and payment
+          information (processed securely via Razorpay). We also collect technical data such as
+          cookies, IP address, and browser details to improve our website and event experience.
+        </p>
 
-          <li>
-            <b>Use of Information</b>
-            <ul>
-              <li>To process event registrations and payments.</li>
-              <li>To send event updates, reminders, and marketing communications.</li>
-              <li>To improve event experience and website functionality.</li>
-            </ul>
-          </li>
+        <h3>Use of Information</h3>
+        <p>
+          Your information is used to process registrations, complete payments, send event updates,
+          improve user experience, and comply with legal obligations. You may opt out of marketing
+          communications at any time.
+        </p>
 
-          <li>
-            <b>Data Protection</b>
-            <ul>
-              <li>We use industry–standard security measures to protect your data.</li>
-              <li>Personal data is stored securely and only used for event purposes.</li>
-            </ul>
-          </li>
+        <h3>Payment Processing</h3>
+        <p>
+          Payments are processed through <strong>Razorpay</strong>, our authorized payment gateway.
+          Razorpay may collect payment information such as card, UPI, or wallet details for
+          transaction processing. We do not store or access your payment credentials. For details,
+          please review Razorpay’s Privacy Policy at{" "}
+          <a
+            href="https://razorpay.com/privacy/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://razorpay.com/privacy/
+          </a>.
+        </p>
 
-          <li>
-            <b>Data Sharing</b>
-            <ul>
-              <li>We do not sell or rent your data.</li>
-              <li>Data may be shared with event partners for event–related purposes only.</li>
-            </ul>
-          </li>
+        <h3>Data Protection</h3>
+        <p>
+          We use industry-standard measures to protect your personal data from unauthorized access
+          or disclosure. All data is stored securely and used only for legitimate purposes related
+          to the event.
+        </p>
 
-          <li>
-            <b>Your Rights</b>
-            <ul>
-              <li>You can request access, correction, or deletion of your personal data.</li>
-              <li>
-                Contact us at vishwasritechnologies@vishcom.info for any privacy concerns.
-              </li>
-            </ul>
-          </li>
+        <h3>Data Sharing</h3>
+        <p>
+          We do not sell or rent user data. Limited information may be shared with trusted partners
+          or service providers for event or payment purposes only, under confidentiality
+          obligations.
+        </p>
 
-          <li>
-            <b>Cookies</b>
-            <ul>
-              <li>Our website uses cookies to enhance user experience.</li>
-              <li>You may choose to disable cookies in your browser settings.</li>
-            </ul>
-          </li>
-        </ol>
+        <h3>Your Rights</h3>
+        <p>
+          You may request access, correction, or deletion of your data by contacting us at{" "}
+          <a href="mailto:vishwasritechnologies@vishcom.info">
+            vishwasritechnologies@vishcom.info
+          </a>.
+        </p>
 
-        <p>By registering for the event, you consent to this Privacy Policy.</p>
+        <h3>Cookies</h3>
+        <p>
+          Our website uses cookies to enhance functionality. You can disable them in your browser
+          settings if preferred.
+        </p>
+
+        <h3>Consent</h3>
+        <p>
+          By registering or making a payment, you consent to this Privacy Policy and the use of your
+          information as described above.
+        </p>
       </div>
     </div>
   );

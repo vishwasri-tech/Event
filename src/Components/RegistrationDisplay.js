@@ -20,8 +20,8 @@ const RegistrationDisplay = () => {
   };
 
   return (
-    <div className="registration-wrapper">
-    <div className="registration-container2">
+    <div className="registration-wrapper1">
+    <div className="registration-container3">
       <button className="close-button" onClick={handleClose}>&times;</button>
       <h2>My Registration</h2>
       <div className="registration-details">

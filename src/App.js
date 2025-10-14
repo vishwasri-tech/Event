@@ -26,6 +26,7 @@ import RegistrationDisplay from './Components/RegistrationDisplay';
 import Footer from './Components/Footer';
 import AboutEvent from './Components/About';
 import PaymentPage from './Components/PaymentPage';
+import TicketCard from './Components/TicketCard';
 
 function App() {
   return (
@@ -67,6 +68,7 @@ function App() {
                        <Route path="/registrationdisplay" element={<RegistrationDisplay/>} />
                         <Route path="/paymentpage" element={<PaymentPage/>} />
                         <Route path="/successpage" element={<SuccessPage/>} />
+                         <Route path="/ticketcard" element={<TicketCard/>} />
         </Routes>
       </div>
     </Router>

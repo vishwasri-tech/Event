@@ -12,11 +12,11 @@ const RegisterPage1 = () => {
   };
      const handleStallsClick = () => {
         
-    navigate("/stalls"); // ✅ Navigate to RegisterPage1 route
+    navigate("/stalls"); 
   };
      const handleSponsorshipClick = () => {
         
-    navigate("/sponsorship"); // ✅ Navigate to RegisterPage1 route
+    navigate("/sponsorship");
   };
   return (
     <div className="register-page1">

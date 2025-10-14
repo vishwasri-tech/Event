@@ -1,7 +1,7 @@
 /* RegistrationDetails.css */
 
 /* Wrapper to center the container */
-.registration-wrapper {
+.registration-wrapper1 {
   position: fixed;
   top: 0;
   left: 0;
@@ -15,7 +15,7 @@
 }
 
 /* Centered card */
-.registration-container2 {
+.registration-container3 {
   width: 100%;
   max-width: 700px;
   padding: 2rem;
@@ -26,10 +26,10 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-.registration-container2 h2 {
+.registration-container3 h2 {
   margin-bottom: 2rem;
   font-size: 1.5rem;
-  color: #111;
+  color: #242565;
 }
 
 .registration-details p {
@@ -55,12 +55,12 @@
 
 /* Responsive Styling */
 @media (max-width: 768px) {
-  .registration-container2 {
+  .registration-container3 {
     margin: 0 1rem;
     padding: 1.5rem;
   }
 
-  .registration-container2 h2 {
+  .registration-container3 h2 {
     font-size: 1.3rem;
   }
 
