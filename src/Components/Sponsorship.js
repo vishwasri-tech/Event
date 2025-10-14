@@ -22,6 +22,7 @@ const Sponsorship = () => {
 
   const [amount, setAmount] = useState("");
   const [showPopup, setShowPopup] = useState(false); // ✅ Added state for popup
+  const [popupMessage, setPopupMessage] = useState("");
 
   const sponsorshipPackages = {
     Bronze: "₹50,000",
@@ -45,9 +46,25 @@ const Sponsorship = () => {
     }
   };
 
-  const validateForm = () => {
+const validateForm = () => {
+    const nameRegex = /^[A-Za-z\s]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const mobileRegex = /^[0-9]{10}$/;
+
     if (!formData.name || !formData.competition || !formData.email || !formData.mobile) {
       alert("Please fill all fields before proceeding.");
+      return false;
+    }
+    if (!nameRegex.test(formData.name)) {
+      alert("Name should contain only alphabets.");
+      return false;
+    }
+    if (!emailRegex.test(formData.email)) {
+      alert("Enter a valid email address.");
+      return false;
+    }
+    if (!mobileRegex.test(formData.mobile)) {
+      alert("Mobile number must contain 10 digits.");
       return false;
     }
     if (!formData.terms) {
@@ -57,26 +74,49 @@ const Sponsorship = () => {
     return true;
   };
 
-  const handleSponsorshipRegistrationClick = () => {
+   const handleSponsorshipRegistrationClick = async () => {
     if (!validateForm()) return;
 
-    // ✅ Show thank-you popup instead of navigating
-    setShowPopup(true);
+    try {
+      const response = await fetch("http://localhost:5000/api/sponsorship", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          competition: formData.competition,
+          email: formData.email,
+          mobile: formData.mobile,
+        }),
+      });
 
-    // Optionally reset the form
-    setFormData({
-      name: "",
-      competition: "",
-      email: "",
-      mobile: "",
-      terms: false,
-    });
-    setAmount("");
+      const data = await response.json();
+      console.log("Response from backend:", data);
+
+      if (response.ok) {
+        setPopupMessage(data.message || "✅ Submitted successfully!");
+        setShowPopup(true);
+
+        // Reset form
+        setFormData({
+          name: "",
+          competition: "",
+          email: "",
+          mobile: "",
+          terms: false,
+        });
+        setAmount("");
+      } else {
+        setPopupMessage(data.message || "❌ Failed to submit form.");
+        setShowPopup(true);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setPopupMessage("⚠️ Server error. Please try again later.");
+      setShowPopup(true);
+    }
   };
 
-  const closePopup = () => {
-    setShowPopup(false);
-  };
+  const closePopup = () => setShowPopup(false);
 
   return (
     <div className="sponsorship">
@@ -177,7 +217,7 @@ const Sponsorship = () => {
         </form>
       </div>
 
-      {/* ✅ Popup Message */}
+      {/*  Popup Message */}
       {showPopup && (
         <div className="popup-overlay">
           <div className="popup-box">
