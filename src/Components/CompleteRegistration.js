@@ -21,11 +21,13 @@ const RegistrationCard = () => {
     const res = await fetch("http://localhost:5000/create-order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount: data.fee,
+      body: JSON.stringify({ 
+      amount: data.fee,
       name: data.name,
       category: data.category,
       competition: data.competition,
-      eventName: "Vishwasri Technologies 1st Anniversary", 
+      eventName: "Vishwasri Technologies 1st Anniversary",
+      paymentFor: "registration", 
     }),
     });
 
@@ -54,6 +56,7 @@ const RegistrationCard = () => {
           razorpay_payment_id: response.razorpay_payment_id,
           razorpay_signature: response.razorpay_signature,
           paymentMethod: "UPI", // or dynamically detect
+          paymentFor: "registration",
         }),
       });
 

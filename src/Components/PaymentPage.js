@@ -9,9 +9,78 @@ const PaymentPage = () => {
 
   const [paymentMethod, setPaymentMethod] = useState("UPI");
 
-  const handleSuccessClick = () => {
-    // ✅ Pass ticketData + paymentMethod to SuccessPage
-    navigate("/successpage", { state: { ...ticketData, paymentMethod } });
+    const [loading, setLoading] = useState(false);
+
+  const handlePayment = async () => {
+    setLoading(true);
+
+    // 1️⃣ Create order on backend
+    const res = await fetch("http://localhost:5000/create-order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        amount: ticketData.amount,
+        name: ticketData.name || "Guest",
+        type: ticketData.type,
+        eventName: "Vishwasri Technologies 1st Anniversary - Ticket Purchase",
+        paymentFor: "ticket",
+      }),
+    });
+
+    const order = await res.json();
+    setLoading(false);
+
+    // 2️⃣ Load Razorpay SDK dynamically
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.onload = () => {
+      const options = {
+        key: "rzp_test_RRHoCga4aLq8js", // replace with your Razorpay test key
+        amount: order.amount,
+        currency: order.currency,
+        name: "Vishwasri Technologies",
+        description: "Event Ticket Purchase",
+        order_id: order.id,
+        handler: async function (response) {
+          console.log("✅ Payment successful:", response);
+
+          // 3️⃣ Verify payment on backend
+          const verifyRes = await fetch("http://localhost:5000/verify-payment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              paymentFor: "ticket",
+            }),
+          });
+
+          const verifyData = await verifyRes.json();
+          if (verifyData.success) {
+            navigate("/successpage", { state: { ...ticketData, paymentStatus: "Success" } });
+          } else {
+            alert("Payment verification failed!");
+          }
+        },
+        prefill: {
+          name: ticketData.name || "",
+          email: ticketData.email || "",
+          contact: ticketData.phone || "",
+        },
+        notes: {
+          ticket_type: ticketData.type,
+        },
+        theme: {
+          color: "#3399cc",
+        },
+      };
+
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+    };
+
+    document.body.appendChild(script);
   };
 
   return (
@@ -26,7 +95,7 @@ const PaymentPage = () => {
           <p><strong>Event Name:</strong> SparkFest 2025</p>
           <p><strong>Amount:</strong> ₹{ticketData.amount}</p>
 
-          <div className="payment-options">
+          {/* <div className="payment-options">
             <label>
               <input
                 type="radio"
@@ -54,9 +123,9 @@ const PaymentPage = () => {
               />
               NetBanking
             </label>
-          </div>
+          </div> */}
 
-          <button className="pay-btn" onClick={handleSuccessClick}>
+          <button className="pay-btn" onClick={handlePayment} disabled={loading}>
             Pay Now
           </button>
         </>
