@@ -22,6 +22,7 @@ const RegistrationCard = () => {
         category: data.category,
         competition: data.competition,
         eventName: "Vishwasri Technologies 1st Anniversary",
+        paymentFor: "registration",
       }),
     });
 
@@ -42,19 +43,16 @@ const RegistrationCard = () => {
         handler: async function (response) {
           console.log("Payment success:", response);
           // 🔁 Verify payment on backend
-          const verifyRes = await fetch(
-            "http://localhost:5000/verify-payment",
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                razorpay_order_id: response.razorpay_order_id,
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_signature: response.razorpay_signature,
-                paymentMethod: "UPI", // or dynamically detect
-              }),
-            }
-          );
+          const verifyRes = await fetch("/verify-payment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              paymentMethod: "UPI", // or dynamically detect
+            }),
+          });
 
           const verifyData = await verifyRes.json();
           if (verifyData.success) {
