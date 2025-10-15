@@ -11,7 +11,7 @@ import kidsZoneImg from "../assets/kidszone.png";
 const WhyAttend = () => {
     const navigate = useNavigate();
        const handleTicketFormClick = () => {
-    navigate("/tickets");
+    navigate("/TicketBuy");
   };
   return (
     <section className="why-attend-section">

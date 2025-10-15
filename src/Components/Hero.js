@@ -20,7 +20,7 @@ const EventHero = () => {
     navigate("/register");
   };
   const handleTicketsClick = () => {
-    navigate("/tickets");
+    navigate("/TicketBuy");
   };
 
   return (
@@ -51,10 +51,10 @@ const EventHero = () => {
             ✕
           </button>
 
-          <p onClick={() => { setMenuOpen(false); navigate("/ticketcard"); }}>
+          <p onClick={() => { setMenuOpen(false); navigate("/ticketform"); }}>
             My Tickets
           </p>
-          <p onClick={() => { setMenuOpen(false); navigate("/registrationdisplay"); }}>
+          <p onClick={() => { setMenuOpen(false); navigate("/ticketform"); }}>
             My Registration
           </p>
           <p onClick={() => { setMenuOpen(false); navigate("/terms"); }}>
@@ -72,10 +72,10 @@ const EventHero = () => {
       {/* Main Content */}
       <div className="hero-content">
         <h1>
-          Vishwasri Technologies
+         Vishwasri Technologies - SparkFest 2025
           <br />
        Marking One Year of Transforming Ideas into Technology</h1>
-        <p className="date">Nov 9th, 2025, 📍 Event Venue</p>
+        <p className="date">Nov 9th, 2025, 📍 University Post Graduate College  - Secunderabad</p>
         <p className="subtext">
           <em>
             Experience innovation, networking & opportunities – all in one

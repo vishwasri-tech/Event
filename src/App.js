@@ -27,6 +27,7 @@ import Footer from './Components/Footer';
 import AboutEvent from './Components/About';
 import PaymentPage from './Components/PaymentPage';
 import TicketCard from './Components/TicketCard';
+import TicketBuy from './Components/BuyTickets';
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
                         <Route path="/paymentpage" element={<PaymentPage/>} />
                         <Route path="/successpage" element={<SuccessPage/>} />
                          <Route path="/ticketcard" element={<TicketCard/>} />
+                           <Route path="/TicketBuy" element={<TicketBuy/>} />
         </Routes>
       </div>
     </Router>

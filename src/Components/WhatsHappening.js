@@ -12,7 +12,7 @@ import djIcon from "../assets/music.png";
 const WhatsHappening = () => {
     const navigate = useNavigate();
      const handleTicketFormClick = () => {
-    navigate("/tickets");
+    navigate("/TicketBuy");
   };
   return (
     <div className="whats-happening-section">
