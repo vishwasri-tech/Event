@@ -4,6 +4,7 @@ import "./PaymentPage.css";
 
 const PaymentPage = () => {
   const location = useLocation();
+  const contact = location.state?.contact;
   const navigate = useNavigate();
   const ticketData = location.state || {}; // ✅ Data from BuyTickets
 
@@ -24,6 +25,7 @@ const PaymentPage = () => {
         type: ticketData.type,
         eventName: "Vishwasri Technologies 1st Anniversary - Ticket Purchase",
         paymentFor: "ticket",
+        contact: location.state?.contact || "",
       }),
     });
 
@@ -58,7 +60,7 @@ const PaymentPage = () => {
 
           const verifyData = await verifyRes.json();
           if (verifyData.success) {
-            navigate("/successpage", { state: { ...ticketData, paymentStatus: "Success" } });
+            navigate("/successpage", { state: { ...ticketData, paymentStatus: "Success", ticketId: verifyData.ticketId} });
           } else {
             alert("Payment verification failed!");
           }
