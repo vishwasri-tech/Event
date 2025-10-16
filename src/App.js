@@ -28,6 +28,7 @@ import AboutEvent from './Components/About';
 import PaymentPage from './Components/PaymentPage';
 import TicketCard from './Components/TicketCard';
 import TicketBuy from './Components/BuyTickets';
+import TicketForm1 from './Components/TicketForm1';
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
                         <Route path="/successpage" element={<SuccessPage/>} />
                          <Route path="/ticketcard" element={<TicketCard/>} />
                            <Route path="/TicketBuy" element={<TicketBuy/>} />
+                            <Route path="/ticketform1" element={<TicketForm1/>} />
         </Routes>
       </div>
     </Router>
