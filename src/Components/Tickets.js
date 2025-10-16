@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate, useLocation } from "react-router-dom"; 
 import "./Tickets.css";
 
 const BuyTickets = () => {
   const navigate = useNavigate();
+  const location = useLocation(); // ✅ get contact from previous page
+  const contact = location.state?.contact || ""; // ✅ extract contact
   const [selected, setSelected] = useState("Couple");
 
   const ticketPrices = {
@@ -17,7 +19,7 @@ const BuyTickets = () => {
   const handleProceed = () => {
     const basePrice = ticketPrices[selected];
     const totalWithGST = Math.round(basePrice * 1.18); // ✅ Include 18% GST
-    const ticketData = { type: selected, amount: totalWithGST };
+    const ticketData = { type: selected, amount: totalWithGST, contact: contact, };
 
     // ✅ Pass data to PaymentPage dynamically
     navigate("/paymentpage", { state: ticketData });

@@ -10,16 +10,13 @@ const TicketBuy = ({ onGetTicket }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (input.trim()) {
-      onGetTicket(input);
+      // ✅ Navigate to ticket page and pass contact info
+      navigate("/tickets", { state: { contact: input } });
     }
   };
 
   const handleClose = () => {
-    navigate(-1); // Go back to previous page
-  };
-   const handleGetTicketClick = () => {
-    // ✅ Pass ticketData + paymentMethod to SuccessPage
-    navigate("/tickets", );
+    navigate(-1);
   };
 
   return (
@@ -36,7 +33,7 @@ const TicketBuy = ({ onGetTicket }) => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
-          <button type="submit" onClick={handleGetTicketClick}>Submit</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     </div>
