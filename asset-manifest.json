@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/Event-frontend/static/css/main.60f43a43.css",
+    "main.js": "/Event-frontend/static/js/main.a62eae6f.js",
+    "static/js/453.f4fcea69.chunk.js": "/Event-frontend/static/js/453.f4fcea69.chunk.js",
+    "static/media/bg.png": "/Event-frontend/static/media/bg.c7f27be67381c5fdeb39.png",
+    "static/media/phn.png": "/Event-frontend/static/media/phn.8a01557c759deda4b0cd.png",
+    "static/media/comp2.png": "/Event-frontend/static/media/comp2.3ade0ebb1244b055fc6b.png",
+    "static/media/comp1.png": "/Event-frontend/static/media/comp1.d02b2f85eb2037bdc0dc.png",
+    "static/media/comp3.png": "/Event-frontend/static/media/comp3.01c52db7e16808b671dc.png",
+    "static/media/kidszone.png": "/Event-frontend/static/media/kidszone.e96cee2bad7536e3976b.png",
+    "static/media/logo.png": "/Event-frontend/static/media/logo.d536b32945d398c7d422.png",
+    "static/media/startups.png": "/Event-frontend/static/media/startups.5814c60c4a3e4b67cbab.png",
+    "static/media/students.png": "/Event-frontend/static/media/students.3db2c66d870f65ffb5a4.png",
+    "static/media/families.png": "/Event-frontend/static/media/families.0f786c7d4214f09c066a.png",
+    "static/media/foodies.png": "/Event-frontend/static/media/foodies.0af1287639fcccfb6a6c.png",
+    "static/media/network.png": "/Event-frontend/static/media/network.33f1c1643d2587d6f82e.png",
+    "static/media/competition1.png": "/Event-frontend/static/media/competition1.664e98f22cb684290823.png",
+    "static/media/music.png": "/Event-frontend/static/media/music.80ba030f845f9b17bcf8.png",
+    "static/media/bulb.png": "/Event-frontend/static/media/bulb.c04dcb73d88bbe117f9d.png",
+    "static/media/experience.png": "/Event-frontend/static/media/experience.aa60affd93fb3ed8ec10.png",
+    "static/media/instagram.png": "/Event-frontend/static/media/instagram.f3101d538616d6570285.png",
+    "static/media/mail.png": "/Event-frontend/static/media/mail.ffeab2e6af9499cdfe10.png",
+    "static/media/stall.png": "/Event-frontend/static/media/stall.5154cf1d87da1efa6566.png",
+    "static/media/family.png": "/Event-frontend/static/media/family.3d4d123f7df1de28f010.png",
+    "static/media/whatsapp.png": "/Event-frontend/static/media/whatsapp.63a6169f71ee1c025545.png",
+    "index.html": "/Event-frontend/index.html",
+    "main.60f43a43.css.map": "/Event-frontend/static/css/main.60f43a43.css.map",
+    "main.a62eae6f.js.map": "/Event-frontend/static/js/main.a62eae6f.js.map",
+    "453.f4fcea69.chunk.js.map": "/Event-frontend/static/js/453.f4fcea69.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.60f43a43.css",
+    "static/js/main.a62eae6f.js"
+  ]
+}
