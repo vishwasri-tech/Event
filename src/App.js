@@ -32,7 +32,7 @@ import TicketForm1 from './Components/TicketForm1';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter basename="/VishwasriTechEvent">
       <div className="App">
         <Routes>
           {/* ✅ Main Landing Page */}
