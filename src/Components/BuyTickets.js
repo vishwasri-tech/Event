@@ -19,7 +19,7 @@ const TicketBuy = ({ onGetTicket }) => {
   };
    const handleGetTicketClick = () => {
     // ✅ Pass ticketData + paymentMethod to SuccessPage
-    navigate("/ticketcard", );
+    navigate("/tickets", );
   };
 
   return (

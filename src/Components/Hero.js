@@ -54,7 +54,7 @@ const EventHero = () => {
           <p onClick={() => { setMenuOpen(false); navigate("/ticketform"); }}>
             My Tickets
           </p>
-          <p onClick={() => { setMenuOpen(false); navigate("/ticketform"); }}>
+          <p onClick={() => { setMenuOpen(false); navigate("/registrationdisplay"); }}>
             My Registration
           </p>
           <p onClick={() => { setMenuOpen(false); navigate("/terms"); }}>

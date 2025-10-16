@@ -23,7 +23,7 @@ const TicketCard = () => {
           <p><span>Event Name:</span> Anniversary Event</p>
           <p><span>Type:</span> Couple</p>
           <p><span>Price:</span> ₹9798</p>
-          <p><span>Venue:</span> Vishwasri Technologies Campus</p>
+          <p><span>Venue:</span>  University Post Graduate College  - Secunderabad</p>
         </div>
       </div>
     </div>

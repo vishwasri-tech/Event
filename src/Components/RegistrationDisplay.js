@@ -16,7 +16,7 @@ const RegistrationDisplay = () => {
     category: 'Competition',
     competitionName: 'Coding Challenge',
     feePaid: '₹855',
-    venue: 'Vishwasri Technologies Campus'
+    venue: ' University Post Graduate College  - Secunderabad'
   };
 
   return (
