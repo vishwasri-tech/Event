@@ -69,14 +69,14 @@ const Stalls = () => {
     if (!validateForm()) return;
 
     const baseFee = 40000;
-    const feeWithGST = (baseFee * 1.18).toFixed(2);
+    // const feeWithGST = (baseFee * 1.18).toFixed(2);
 
     const stallData = {
       name: formData.name,
       competition: formData.competition,
       email: formData.email,
       mobile: formData.mobile,
-      fee: feeWithGST,
+      fee: baseFee,
       category: "Stall",
     };
 

@@ -98,7 +98,7 @@ const RegisterPage2 = () => {
     // 🧮 Calculate total fee with 18% GST (internally only)
     setLoading(true);
     const baseFee = Number(formData.fee);
-    const totalFee = baseFee + baseFee * 0.18;
+    const totalFee = baseFee;
     try {
       const response = await fetch("http://192.168.1.4:5000/api/register", {
         method: "POST",

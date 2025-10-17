@@ -31,10 +31,10 @@ const Footer = () => {
             <a href="#">
               <img src={facebookIcon} alt="Facebook" className="social-img" />
             </a>
-            <a href="#">
+            <a href="https://www.instagram.com/vishwasri_technologies/">
               <img src={instagramIcon} alt="Instagram" className="social-img" />
             </a>
-            <a href="#">
+            <a href="https://www.linkedin.com/company/vishwasritechnologies-pvt-ltd/">
               <img src={linkedinIcon} alt="LinkedIn" className="social-img" />
             </a>
           
