@@ -28,7 +28,7 @@ const Footer = () => {
         <div className="footer-socials">
           <h4>Let's get social :</h4>
           <div className="social-icons">
-            <a href="#">
+            <a href="https://www.facebook.com/">
               <img src={facebookIcon} alt="Facebook" className="social-img" />
             </a>
             <a href="https://www.instagram.com/vishwasri_technologies/">

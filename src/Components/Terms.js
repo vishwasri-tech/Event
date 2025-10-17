@@ -17,7 +17,7 @@ const TermsConditions = () => {
         <h2>Terms & Conditions</h2>
         <h3>Vishwasri Technologies – Event Terms & Conditions</h3>
         <p>
-          Welcome to the Vishwasri Technologies 1st Anniversary Event. By
+          Welcome to the Vishwasri Technologies SparkFest 2025 Event. By
           registering for this Event, you agree to the following terms and
           conditions:
         </p>

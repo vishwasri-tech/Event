@@ -20,7 +20,7 @@ const TicketCard = () => {
 
         <div className="myticket-details">
           <p><span>Ticket ID:</span> TICK12345</p>
-          <p><span>Event Name:</span> Anniversary Event</p>
+          <p><span>Event Name:</span> SparkFest 2025</p>
           <p><span>Type:</span> Couple</p>
           <p><span>Price:</span> ₹9798</p>
           <p><span>Venue:</span>  University Post Graduate College  - Secunderabad</p>

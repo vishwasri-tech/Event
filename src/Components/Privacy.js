@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
         <p>
           At <strong>Vishwasri Technologies</strong>, we value your privacy and are committed to
           protecting your personal information. This Privacy Policy explains how we collect, use,
-          and safeguard your data for our <strong>1st Anniversary Event</strong> and related
+          and safeguard your data and related
           services.
         </p>
 

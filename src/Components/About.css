@@ -1,14 +1,14 @@
 .about-event {
-  max-width: 1200px;       /* keeps content neat on large screens */
+  max-width: 1000px;       /* flexible container */
   margin: 40px auto;
-  padding: 0 20px;        /* padding for mobile */
+  padding: 0 20px;         
   font-family: "Arial", sans-serif;
   line-height: 1.7;
   color: #333;
 }
 
 .about-event h2 {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
   color: #00008b;        
   margin-bottom: 15px;
@@ -24,15 +24,26 @@
   font-weight: 600;
 }
 
+.about-event a {
+  color: #00008b;
+  text-decoration: underline;
+}
+
+.about-event a:hover {
+  color: #0056b3;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .about-event h2 {
-    font-size: 20px;
+  .about-event {
     text-align: center;
+  }
+
+  .about-event h2 {
+    font-size: 22px;
   }
 
   .about-event p {
     font-size: 14px;
-    text-align: center;
   }
 }

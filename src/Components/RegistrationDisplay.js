@@ -12,7 +12,7 @@ const RegistrationDisplay = () => {
 
   const registration = {
     id: 'REG12345',
-    eventName: 'Vishwasri Technologies 1st Anniversary',
+    eventName: 'SparkFest 2025',
     category: 'Competition',
     competitionName: 'Coding Challenge',
     feePaid: '₹855',

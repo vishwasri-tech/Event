@@ -6,9 +6,8 @@ const AboutEvent = () => {
     <section className="about-event">
       <h2>About Event</h2>
       <p>
-        Vishwasri Technologies proudly presents its{" "}
-        <strong>1st Anniversary Celebration</strong> — a grand event bringing
-        together <strong>startups, students, families, and food lovers.</strong>
+        Vishwasri Technologies proudly presents a grand event bringing together{" "}
+        <strong>startups, students, families, and food lovers.</strong>
       </p>
       <p>
         Our purpose is to celebrate innovation, creativity, and community by
@@ -16,7 +15,17 @@ const AboutEvent = () => {
       </p>
       <p>
         Join us for a day filled with competitions, stalls, cultural shows,
-        workshops, food experiences, and unforgettable moments.
+        workshops, food experiences, and memorable moments.
+      </p>
+      <p>
+        <strong>Event Venue:</strong>{" "}
+        <a
+          href="https://maps.google.com/?q=University+Post+Graduate+College+Secunderabad"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          University Post Graduate College – Secunderabad
+        </a>
       </p>
     </section>
   );

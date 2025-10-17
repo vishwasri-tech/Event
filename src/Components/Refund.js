@@ -17,7 +17,7 @@ const RefundPolicy = () => {
         <h2>Refund / Cancellation Policy</h2>
 
         <h3>Vishwasri Technologies – Refund & Cancellation Policy</h3>
-        <p>We strive to ensure our events run smoothly and transparently. Please read this policy carefully before registering for the 1st Anniversary Event.</p>
+        <p>We strive to ensure our events run smoothly and transparently. Please read this policy carefully before registering for the SparkFest 2025 Event.</p>
 
         <h4>Cancellation by Participant</h4>
         <ul>

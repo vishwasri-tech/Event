@@ -7,10 +7,10 @@
 
 import React, { useState } from "react";
 import "./Sponsorship.css";
-import { useNavigate } from "react-router-dom";
+
 
 const Sponsorship = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -20,9 +20,9 @@ const Sponsorship = () => {
     terms: false,
   });
 
-  const [amount, setAmount] = useState("");
+  const [ setAmount] = useState("");
   const [showPopup, setShowPopup] = useState(false); // ✅ Added state for popup
-  const [popupMessage, setPopupMessage] = useState("");
+  const [ setPopupMessage] = useState("");
 
   const sponsorshipPackages = {
     Bronze: "₹50,000",

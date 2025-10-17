@@ -24,7 +24,7 @@ const RegistrationSuccess1 = () => {
 
         <div className="details">
           <strong>Registration ID:</strong> <span>REG{Math.floor(Math.random() * 100000)}</span>
-          <strong>Event Name:</strong> <span>Vishwasri Technologies 1st Anniversary</span>
+          <strong>Event Name:</strong> <span>SparkFest 2025</span>
           <strong>Category:</strong> <span>{data.category || "Competition"}</span>
           <strong>Competition:</strong> <span>{data.competition || "—"}</span>
           <strong>Fee Paid:</strong> <span>₹{data.fee || "—"}</span>

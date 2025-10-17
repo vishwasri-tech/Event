@@ -23,7 +23,7 @@ const PaymentPage = () => {
       {ticketData.type && ticketData.amount ? (
         <>
           <p><strong>Ticket Type:</strong> {ticketData.type}</p>
-          <p><strong>Event Name:</strong> Vishwasri Technologies 1st Anniversary</p>
+          <p><strong>Event Name:</strong> SparkFest 2025</p>
           <p><strong>Amount:</strong> ₹{ticketData.amount}</p>
 
           <div className="payment-options">
