@@ -31,7 +31,7 @@ import TicketForm1 from "./Components/TicketForm1";
 
 function App() {
   return (
-    <Router">
+    <Router>
       <div className="App">
         <Routes>
           {/* ✅ Main Landing Page */}
