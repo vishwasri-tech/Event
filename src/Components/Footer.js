@@ -8,12 +8,10 @@ import facebookIcon from "../assets/fb.png";
 import instagramIcon from "../assets/instagram.png";
 import linkedinIcon from "../assets/linkedin.png";
 
-
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        
         {/* Logo + Description */}
         <div className="footer-logo">
           <img src={logo} alt="Vishwasri Logo" />
@@ -37,13 +35,12 @@ const Footer = () => {
             <a href="https://www.linkedin.com/company/vishwasritechnologies-pvt-ltd/">
               <img src={linkedinIcon} alt="LinkedIn" className="social-img" />
             </a>
-          
           </div>
         </div>
       </div>
 
       <p className="footer-bottom">
-        © 2025 Vishwasri Technologies – All Rights Reserved
+        © 2024 Vishwasri Technologies – All Rights Reserved
       </p>
     </footer>
   );
