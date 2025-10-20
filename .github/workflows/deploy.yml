@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # --- ADD THESE THREE STEPS ---
+      # --- Setup Steps ---
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -21,10 +21,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
-        run: npm run build
-      # ----------------------------
-
+      # --- CRITICAL FIX: Clean and Build Project ---
+      # This step ensures the 'build' folder is deleted before a new build,
+      # forcing create-react-app to generate a fresh index.html with the correct asset links.
+      - name: Clean and Build project
+        run: |
+          rm -rf build 
+          npm run build
+      # -----------------------------------------------
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -34,5 +38,6 @@ jobs:
 
       - name: Sync built files to S3
         run: |
-          # This command is now correct as it targets the 'build' folder
+          # This command synchronizes the new build contents to the S3 bucket,
+          # including the freshly generated index.html.
           aws s3 sync ./build s3://event-app-artifacts-vishwasritech --delete
