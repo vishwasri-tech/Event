@@ -40,7 +40,7 @@ const Footer = () => {
       </div>
 
       <p className="footer-bottom">
-        © 2024 Vishwasri Technologies – All Rights Reserved
+        © 2023 Vishwasri Technologies – All Rights Reserved
       </p>
     </footer>
   );
