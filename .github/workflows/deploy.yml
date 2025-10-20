@@ -1,4 +1,4 @@
-name: Deploy to S3
+name: Fully Automated Deploy to EC2
 
 on:
   push:
@@ -12,23 +12,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # --- Setup Steps ---
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18" # Use the Node version appropriate for your project
+          node-version: "18"
 
       - name: Install dependencies
         run: npm install
 
-      # --- CRITICAL FIX: Clean and Build Project ---
-      # This step ensures the 'build' folder is deleted before a new build,
-      # forcing create-react-app to generate a fresh index.html with the correct asset links.
       - name: Clean and Build project
         run: |
           rm -rf build 
           npm run build
-      # -----------------------------------------------
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -37,7 +33,21 @@ jobs:
           aws-region: ap-south-1
 
       - name: Sync built files to S3
-        run: |
-          # This command synchronizes the new build contents to the S3 bucket,
-          # including the freshly generated index.html.
-          aws s3 sync ./build s3://event-app-artifacts-vishwasritech --delete
+        run: aws s3 sync ./build s3://event-app-artifacts-vishwasritech --delete
+
+      # --- CRITICAL FIX: AUTOMATE EC2 DEPLOYMENT VIA SSH ---
+      - name: Deploy to EC2 and Restart Nginx
+        uses: appleboy/ssh-action@master
+        with:
+          # Use the Secret added in Step 1
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # The EC2 user and IP address
+          host: 3.110.182.77
+          username: ec2-user
+          # Run the final deployment commands on the EC2 instance
+          script: |
+            echo "Pulling latest build from S3 to Nginx web root..."
+            sudo aws s3 sync s3://event-app-artifacts-vishwasritech /usr/share/nginx/html --delete
+            echo "Restarting Nginx service..."
+            sudo systemctl restart nginx
+            echo "Deployment complete."
