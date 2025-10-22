@@ -88,7 +88,7 @@ const Stalls = () => {
         alert("✅ Stall Registered Successfully!");
         // Navigate to payment or next screen
         navigate("/completeregistration", {
-          state: { ...stallData },
+          state: { ...stallData, stallId: response.data.stallId },
         });
       }
     } catch (error) {

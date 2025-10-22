@@ -89,4 +89,21 @@
     grid-template-columns: 120px auto; /* adjust for smaller screen */
     font-size: 13px;
   }
+
+  .download-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  background-color: #43a047;
+}
+
 }
