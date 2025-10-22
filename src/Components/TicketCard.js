@@ -35,13 +35,6 @@ const TicketCard = () => {
         <h2 className="myticket-title">My Ticket</h2>
 
         <div className="myticket-details">
-<<<<<<< HEAD
-          <p><span>Ticket ID:</span> TICK12345</p>
-          <p><span>Event Name:</span> SparkFest 2025</p>
-          <p><span>Type:</span> Couple</p>
-          <p><span>Price:</span> ₹9798</p>
-          <p><span>Venue:</span>  University Post Graduate College  - Secunderabad</p>
-=======
           <p><span>Ticket ID:</span> {ticketData.ticketId}</p>
           {/* <p><span>Event Name:</span> {ticketData.eventName}</p> */}
           <p><span>Type:</span> {ticketData.type}</p>
@@ -49,7 +42,6 @@ const TicketCard = () => {
           {/* <p><span>Contact:</span> {ticketData.contact}</p> */}
           <p><span>Status:</span> {ticketData.status}</p>
           {/* <p><span>Payment Date:</span> {new Date(ticketData.paymentTime).toLocaleString()}</p> */}
->>>>>>> e9a2b5c (worked on get your tickets backend)
         </div>
       </div>
     </div>
