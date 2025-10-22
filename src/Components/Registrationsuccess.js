@@ -31,7 +31,7 @@ const RegistrationSuccess1 = () => {
     doc.text("Vishwasri Technologies", 105, 25, { align: "center" });
 
     doc.setFontSize(14);
-    doc.text("1st Anniversary Event Registration Receipt", 105, 35, { align: "center" });
+    doc.text("SparkFest 2025", 105, 35, { align: "center" });
 
     // 🔹 Optional logo (uncomment if you have one)
     // const img = new Image();
@@ -53,7 +53,7 @@ const RegistrationSuccess1 = () => {
     const details = [
       ["Registration ID:", registrationId],
       ["Participant Name:", data.name || "—"],
-      ["Event Name:", "Vishwasri Technologies 1st Anniversary"],
+      ["Event Name:", "SparkFest 2025"],
       ["Category:", data.category || "Competition"],
       ["Competition:", data.competition || "—"],
       ["Fee Paid:", `INR ${data.fee || "—"}`],

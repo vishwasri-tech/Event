@@ -8,8 +8,6 @@ const PaymentPage = () => {
   const navigate = useNavigate();
   const ticketData = location.state || {}; // ✅ Data from BuyTickets
 
-  const [paymentMethod, setPaymentMethod] = useState("UPI");
-
     const [loading, setLoading] = useState(false);
 
   const handlePayment = async () => {
@@ -23,7 +21,7 @@ const PaymentPage = () => {
         amount: ticketData.amount,
         name: ticketData.name || "Guest",
         type: ticketData.type,
-        eventName: "Vishwasri Technologies 1st Anniversary - Ticket Purchase",
+        eventName: "SparkFest2025",
         paymentFor: "ticket",
         contact: location.state?.contact || "",
       }),
