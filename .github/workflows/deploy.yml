@@ -43,7 +43,7 @@ jobs:
             --instance-ids ${{ secrets.EC2_INSTANCE_ID }} \
             --document-name "AWS-RunShellScript" \
             --parameters 'commands=[
-              "echo --- 1. Creating directory (if not exist) ---",
+              "echo --- 1. Creating directory ---",
               "sudo mkdir -p /var/www/sparkfest",
               "echo --- 2. Pulling frontend from S3 ---",
               "sudo aws s3 sync s3://event-app-artifacts-vishwasritech /var/www/sparkfest/ --delete",
