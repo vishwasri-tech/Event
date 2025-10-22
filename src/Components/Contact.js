@@ -37,9 +37,7 @@ const ContactSection = () => {
 
     // Email validation
     if (
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-        formData.email.trim().toLowerCase()
-      )
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim().toLowerCase())
     ) {
       newErrors.email = "Enter a valid email address";
     }
@@ -67,7 +65,7 @@ const ContactSection = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -90,15 +88,16 @@ const ContactSection = () => {
       {/* Contact Info */}
       <div className="contact-info">
         <h2>Contact Us</h2>
-        <p>Want to know more about the event? Contact us and let’s stay connected.</p>
+        <p>
+          Want to know more about the event? Contact us and let’s stay
+          connected.
+        </p>
 
         <div className="info-list">
           <div className="info-item">
             <img src={phone} alt="Phone" className="icon-img" />
             <span className="info-text">99082 08857, 93478 50568</span>
           </div>
-
-         
 
           <div className="info-item">
             <img src={whatsapp} alt="WhatsApp" className="icon-img" />
@@ -118,10 +117,11 @@ const ContactSection = () => {
               vishwasritechnologies@vishcom.info
             </span>
           </div>
-           <div className="info-item">
+          <div className="info-item">
             <img src={location} alt="Location" className="icon-img" />
             <span className="info-text">
-              Arya One Building, Sindhi Colony, Begumpet, Hyderabad, Telangana 500003
+              Arya One Building, Sindhi Colony, Begumpet, Hyderabad, Telangana
+              500003
             </span>
           </div>
         </div>
