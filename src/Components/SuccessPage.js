@@ -40,11 +40,11 @@ const SuccessPage = () => {
         <>
         <div className="ticket-details1" ref={ticketRef} style={{ padding: "20px", background: "#fff" }}>
           <p><strong>Ticket ID:</strong> {ticketId}</p>
-          <p><strong>Event Name:</strong> SparkFest 2025</p>
+          <p><strong>Event Name:</strong>SparkFest 2025</p>
           <p><strong>Type:</strong> {ticketData.type}</p>
           <p><strong>Price:</strong> ₹{ticketData.amount}</p>
-          <p><strong>Venue:</strong> University Post Graduate College  - Secunderabad</p>
-
+          {/* <p><strong>Payment Method:</strong> {ticketData.paymentMethod}</p> */}
+          <p><strong>Venue:</strong>University Post Graduate College  - Secunderabad</p>
         </div>
         <button className="download-btn" onClick={handleDownload} style={{ marginTop: "20px" }}>
             Download Ticket
