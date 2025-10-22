@@ -82,7 +82,7 @@ const Stalls = () => {
 
     try {
       // ✅ Send data to backend API
-      const response = await axios.post("http://192.168.1.4:5000/api/stalls", stallData);
+      const response = await axios.post("/api/stalls", stallData);
 
       if (response.status === 201) {
         alert("✅ Stall Registered Successfully!");
@@ -93,7 +93,9 @@ const Stalls = () => {
       }
     } catch (error) {
       console.error("❌ Error while registering stall:", error);
-      alert("Something went wrong while registering your stall. Please try again.");
+      alert(
+        "Something went wrong while registering your stall. Please try again."
+      );
     }
   };
 
@@ -105,13 +107,16 @@ const Stalls = () => {
         <div className="stall-info">
           <h3>Book Your Stall — Showcase, Sell & Shine!</h3>
           <p>
-            Be part of the grand celebration by setting up your own stall! Whether you’re into
-            <strong> Food, Fashion, Tech, Art, or Startups</strong>, this is your chance to
-            connect with thousands of visitors, showcase your creativity, and grow your brand
-            visibility.
+            Be part of the grand celebration by setting up your own stall!
+            Whether you’re into
+            <strong> Food, Fashion, Tech, Art, or Startups</strong>, this is
+            your chance to connect with thousands of visitors, showcase your
+            creativity, and grow your brand visibility.
           </p>
 
-          <p className="highlight"><strong>Every stall starting from ₹40,000</strong></p>
+          <p className="highlight">
+            <strong>Every stall starting from ₹40,000</strong>
+          </p>
         </div>
 
         <form>
@@ -142,12 +147,7 @@ const Stalls = () => {
 
           <div className="form-group">
             <label>Registration Fee</label>
-            <input
-              type="text"
-              name="fee"
-              value="₹40,000"
-              readOnly
-            />
+            <input type="text" name="fee" value="₹40,000" readOnly />
           </div>
 
           <div className="form-group">
