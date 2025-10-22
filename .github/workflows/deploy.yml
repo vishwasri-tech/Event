@@ -37,15 +37,11 @@ jobs:
 
       # --- SECURE DEPLOYMENT VIA AWS SSM ---
       - name: Deploy Frontend to EC2 via SSM
-        uses: aws-actions/aws-cli-tools@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-south-1
-          args: >
-            ssm send-command
-            --instance-ids ${{ secrets.EC2_INSTANCE_ID }}
-            --document-name "AWS-RunShellScript"
+        run: |
+          echo "--- Sending SSM Command for Frontend ---"
+          aws ssm send-command \
+            --instance-ids ${{ secrets.EC2_INSTANCE_ID }} \
+            --document-name "AWS-RunShellScript" \
             --parameters 'commands=[
               "echo --- 1. Creating directory (if not exist) ---",
               "sudo mkdir -p /var/www/sparkfest",
