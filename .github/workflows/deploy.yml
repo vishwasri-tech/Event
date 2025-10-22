@@ -35,32 +35,23 @@ jobs:
       - name: Sync built files to S3
         run: aws s3 sync ./build s3://event-app-artifacts-vishwasritech --delete
 
-      # --- CRITICAL FIX: AUTOMATE EC2 DEPLOYMENT VIA SSH ---
-      - name: Deploy to EC2 and Restart Nginx
-        uses: appleboy/ssh-action@master
+      # --- SECURE DEPLOYMENT VIA AWS SSM ---
+      - name: Deploy Frontend to EC2 via SSM
+        uses: aws-actions/aws-cli-tools@v1
         with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          host: 3.110.182.77
-          username: ec2-user
-          # **UPDATED SCRIPT:** Forcefully removes the old content, syncs the new content, and restores permissions.
-          script: |
-            echo "--- STARTING AGGRESSIVE DEPLOYMENT ---"
-
-            # 1. Forcefully remove ALL existing Nginx files
-            # This step prevents old files (like the bad index.html) from persisting due to OS-level file locking or permissions.
-            echo "1. Clearing Nginx web root to prevent file conflicts..."
-            sudo rm -rf /usr/share/nginx/html/*
-
-            # 2. Pull the LATEST build from S3 into the now-empty directory
-            echo "2. Pulling latest build from S3..."
-            sudo aws s3 sync s3://event-app-artifacts-vishwasritech /usr/share/nginx/html --delete
-
-            # 3. Fix ownership (Ensures Nginx user can read and serve the new files)
-            echo "3. Restoring file ownership for Nginx user..."
-            sudo chown -R nginx:nginx /usr/share/nginx/html
-
-            # 4. Restart Nginx service
-            echo "4. Restarting Nginx service..."
-            sudo systemctl restart nginx
-
-            echo "--- DEPLOYMENT COMPLETE ---"
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+          args: >
+            ssm send-command
+            --instance-ids ${{ secrets.EC2_INSTANCE_ID }}
+            --document-name "AWS-RunShellScript"
+            --parameters 'commands=[
+              "echo --- 1. Creating directory (if not exist) ---",
+              "sudo mkdir -p /var/www/sparkfest",
+              "echo --- 2. Pulling frontend from S3 ---",
+              "sudo aws s3 sync s3://event-app-artifacts-vishwasritech /var/www/sparkfest/ --delete",
+              "echo --- 3. Setting Nginx permissions ---",
+              "sudo chown -R nginx:nginx /var/www/sparkfest",
+              "echo --- Frontend deploy complete ---"
+            ]'
