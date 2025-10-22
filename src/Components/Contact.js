@@ -78,7 +78,7 @@ const ContactSection = () => {
       setFormData({ name: "", mobile: "", email: "", message: "" });
       setErrors({});
     } catch (err) {
-      alert("Error submitting form. Please try again later.");
+      alert("Error submitting forms. Please try again later.");
       console.error(err);
     }
   };

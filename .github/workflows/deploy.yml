@@ -45,9 +45,11 @@ jobs:
             --parameters 'commands=[
               "echo --- 1. Creating directory ---",
               "sudo mkdir -p /var/www/sparkfest",
-              "echo --- 2. Pulling frontend from S3 ---",
+              "echo --- 2. Removing old frontend files ---",
+              "sudo rm -rf /var/www/sparkfest/*",
+              "echo --- 3. Pulling latest frontend from S3 ---",
               "sudo aws s3 sync s3://event-app-artifacts-vishwasritech /var/www/sparkfest/ --delete",
-              "echo --- 3. Setting Nginx permissions ---",
+              "echo --- 4. Setting Nginx permissions ---",
               "sudo chown -R nginx:nginx /var/www/sparkfest",
               "echo --- Frontend deploy complete ---"
             ]'
