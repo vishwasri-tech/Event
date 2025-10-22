@@ -1,13 +1,5 @@
-
-
-
-
-
-
-
 import React, { useState } from "react";
 import "./Sponsorship.css";
-
 
 const Sponsorship = () => {
   // const navigate = useNavigate();
@@ -20,9 +12,9 @@ const Sponsorship = () => {
     terms: false,
   });
 
-  const [ setAmount] = useState("");
+  const [setAmount] = useState("");
   const [showPopup, setShowPopup] = useState(false); // ✅ Added state for popup
-  const [ setPopupMessage] = useState("");
+  const [setPopupMessage] = useState("");
 
   const sponsorshipPackages = {
     Bronze: "₹50,000",
@@ -46,12 +38,17 @@ const Sponsorship = () => {
     }
   };
 
-const validateForm = () => {
+  const validateForm = () => {
     const nameRegex = /^[A-Za-z\s]+$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const mobileRegex = /^[0-9]{10}$/;
 
-    if (!formData.name || !formData.competition || !formData.email || !formData.mobile) {
+    if (
+      !formData.name ||
+      !formData.competition ||
+      !formData.email ||
+      !formData.mobile
+    ) {
       alert("Please fill all fields before proceeding.");
       return false;
     }
@@ -74,11 +71,11 @@ const validateForm = () => {
     return true;
   };
 
-   const handleSponsorshipRegistrationClick = async () => {
+  const handleSponsorshipRegistrationClick = async () => {
     if (!validateForm()) return;
 
     try {
-      const response = await fetch("http://localhost:5000/api/sponsorship", {
+      const response = await fetch("/api/sponsorship", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -127,19 +124,37 @@ const validateForm = () => {
         <div className="sponsorship-info">
           <h3>Partner With Us — Power the Celebration of Innovation!</h3>
           <p>
-            Join hands with us as a valued sponsor and make your brand a part of an
-            unforgettable celebration of creativity, technology, and talent.
+            Join hands with us as a valued sponsor and make your brand a part of
+            an unforgettable celebration of creativity, technology, and talent.
           </p>
 
           <ul>
-            <li><strong>Bronze (₹50,000)</strong> – Build brand awareness and enjoy stage presence.</li>
-            <li><strong>Silver (₹1,00,000)</strong> – Boost your brand visibility and recognition.</li>
-            <li><strong>Gold (₹3,00,000)</strong> – Gain spotlight and impactful brand awareness.</li>
-            <li><strong>Platinum (₹4,50,000)</strong> – Enjoy premium benefits and expanded branding.</li>
-            <li><strong>VIP Premium (₹8,00,000)</strong> – Unlock exclusive marketing privileges.</li>
+            <li>
+              <strong>Bronze (₹50,000)</strong> – Build brand awareness and
+              enjoy stage presence.
+            </li>
+            <li>
+              <strong>Silver (₹1,00,000)</strong> – Boost your brand visibility
+              and recognition.
+            </li>
+            <li>
+              <strong>Gold (₹3,00,000)</strong> – Gain spotlight and impactful
+              brand awareness.
+            </li>
+            <li>
+              <strong>Platinum (₹4,50,000)</strong> – Enjoy premium benefits and
+              expanded branding.
+            </li>
+            <li>
+              <strong>VIP Premium (₹8,00,000)</strong> – Unlock exclusive
+              marketing privileges.
+            </li>
           </ul>
 
-          <h4>Join us and lead the celebration — where your brand meets opportunity!</h4>
+          <h4>
+            Join us and lead the celebration — where your brand meets
+            opportunity!
+          </h4>
         </div>
 
         {/* Sponsorship Form */}
@@ -223,9 +238,11 @@ const validateForm = () => {
           <div className="popup-box">
             <h3>Thank You!</h3>
             <p>
-              Thank you for your interest in sponsoring <strong>[Event Name]</strong>.
+              Thank you for your interest in sponsoring{" "}
+              <strong>[Event Name]</strong>.
               <br />
-              Our team will get in touch with you shortly to discuss your sponsorship details.
+              Our team will get in touch with you shortly to discuss your
+              sponsorship details.
             </p>
             <button className="close-popup" onClick={closePopup}>
               Close
@@ -238,4 +255,3 @@ const validateForm = () => {
 };
 
 export default Sponsorship;
-
