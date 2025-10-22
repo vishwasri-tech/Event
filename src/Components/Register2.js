@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 import React, { useState } from "react";
 import "./Register2.css";
 import { useNavigate } from "react-router-dom";
@@ -92,7 +85,7 @@ const RegisterPage2 = () => {
     return true;
   };
 
-  const handlePaymentClick = async() => {
+  const handlePaymentClick = async () => {
     if (!validateForm()) return;
 
     // 🧮 Calculate total fee with 18% GST (internally only)
@@ -100,7 +93,7 @@ const RegisterPage2 = () => {
     const baseFee = Number(formData.fee);
     const totalFee = baseFee;
     try {
-      const response = await fetch("http://192.168.1.4:5000/api/register", {
+      const response = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -147,35 +140,41 @@ const RegisterPage2 = () => {
         <div className="showcase-section">
           <h3>Showcase Your Talent — Compete & Win Big!</h3>
           <p>
-            Step into the spotlight and prove your skills across four exciting competitions — 
+            Step into the spotlight and prove your skills across four exciting
+            competitions —
             <strong> Tech, Clothing, Food, and Startup Pitching.</strong>
           </p>
           <p>
-            Bring your ideas, creativity, and innovation to life and stand a chance to win exciting prizes and recognition!
+            Bring your ideas, creativity, and innovation to life and stand a
+            chance to win exciting prizes and recognition!
           </p>
 
           <ul>
             <li>
-              <strong>Tech Competition</strong> – Solve real–world problem statements and win 
+              <strong>Tech Competition</strong> – Solve real–world problem
+              statements and win
               <strong> ₹1,00,000</strong> for the best solution.
             </li>
             <li>
-              <strong>Clothing Competition</strong> – Unleash your creativity in fashion design and win 
+              <strong>Clothing Competition</strong> – Unleash your creativity in
+              fashion design and win
               <strong> ₹25,000</strong>.
             </li>
             <li>
-              <strong>Food Competition</strong> – Cook up your best recipe and win 
+              <strong>Food Competition</strong> – Cook up your best recipe and
+              win
               <strong> ₹20,000</strong> for your culinary brilliance.
             </li>
             <li>
-              <strong>Startup Pitching</strong> – Present your idea and win 
-              <strong> funding up to ₹5 Lakhs</strong> to turn your dream into reality.
+              <strong>Startup Pitching</strong> – Present your idea and win
+              <strong> funding up to ₹5 Lakhs</strong> to turn your dream into
+              reality.
             </li>
           </ul>
 
           <p className="highlight">
-            Registration fees start as low as <strong>₹1,000</strong>, so don’t wait — 
-            this is your chance to shine, connect, and compete at 
+            Registration fees start as low as <strong>₹1,000</strong>, so don’t
+            wait — this is your chance to shine, connect, and compete at
             <strong> Vishwasri Technologies’ grand celebration!</strong>
           </p>
           <p>
