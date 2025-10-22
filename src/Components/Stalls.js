@@ -82,13 +82,13 @@ const Stalls = () => {
 
     try {
       // ✅ Send data to backend API
-      const response = await axios.post("http://192.168.1.4:5000/api/stalls", stallData);
+      const response = await axios.post("http://localhost:5000/api/stalls", stallData);
 
       if (response.status === 201) {
         alert("✅ Stall Registered Successfully!");
         // Navigate to payment or next screen
         navigate("/completeregistration", {
-          state: { ...stallData },
+          state: { ...stallData, stallId: response.data.stallId, },
         });
       }
     } catch (error) {
