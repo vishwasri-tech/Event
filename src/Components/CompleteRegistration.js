@@ -13,7 +13,7 @@ const RegistrationCard = () => {
     setLoading(true);
 
     // 1️⃣ Create order from backend
-    const res = await fetch("/create-order", {
+    const res = await fetch("/api/create-order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -43,7 +43,7 @@ const RegistrationCard = () => {
         handler: async function (response) {
           console.log("Payment success:", response);
           // 🔁 Verify payment on backend
-          const verifyRes = await fetch("/verify-payment", {
+          const verifyRes = await fetch("/api/verify-payment", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
