@@ -14,7 +14,7 @@ const PaymentPage = () => {
     setLoading(true);
 
     // 1️⃣ Create order on backend
-    const res = await fetch("/create-order", {
+    const res = await fetch("/api/create-order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -45,7 +45,7 @@ const PaymentPage = () => {
           console.log("Payment successful:", response);
 
           // 3️⃣ Verify payment on backend
-          const verifyRes = await fetch("/verify-payment", {
+          const verifyRes = await fetch("/api/verify-payment", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
