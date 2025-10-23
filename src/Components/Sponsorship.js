@@ -12,9 +12,9 @@ const Sponsorship = () => {
     terms: false,
   });
 
-  const [amount, setAmount] = useState("");
+  const [_amount, setAmount] = useState("");
   const [showPopup, setShowPopup] = useState(false); // ✅ Added state for popup
-  const [popupMessage, setPopupMessage] = useState("");
+  const [, setPopupMessage] = useState("");
 
   const sponsorshipPackages = {
     Bronze: "₹50,000",
