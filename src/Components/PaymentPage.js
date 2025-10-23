@@ -4,17 +4,17 @@ import "./PaymentPage.css";
 
 const PaymentPage = () => {
   const location = useLocation();
-  const contact = location.state?.contact;
+  // const contact = location.state?.contact;
   const navigate = useNavigate();
   const ticketData = location.state || {}; // ✅ Data from BuyTickets
 
-    const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handlePayment = async () => {
     setLoading(true);
 
     // 1️⃣ Create order on backend
-    const res = await fetch("http://localhost:5000/create-order", {
+    const res = await fetch("/create-order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -42,10 +42,10 @@ const PaymentPage = () => {
         description: "Event Ticket Purchase",
         order_id: order.id,
         handler: async function (response) {
-          console.log("✅ Payment successful:", response);
+          console.log("Payment successful:", response);
 
           // 3️⃣ Verify payment on backend
-          const verifyRes = await fetch("http://localhost:5000/verify-payment", {
+          const verifyRes = await fetch("/verify-payment", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -58,7 +58,13 @@ const PaymentPage = () => {
 
           const verifyData = await verifyRes.json();
           if (verifyData.success) {
-            navigate("/successpage", { state: { ...ticketData, paymentStatus: "Success", ticketId: verifyData.ticketId} });
+            navigate("/successpage", {
+              state: {
+                ...ticketData,
+                paymentStatus: "Success",
+                ticketId: verifyData.ticketId,
+              },
+            });
           } else {
             alert("Payment verification failed!");
           }
@@ -85,15 +91,23 @@ const PaymentPage = () => {
 
   return (
     <div className="payment-container">
-      <button className="close-btn" onClick={() => navigate(-1)}>✖</button>
+      <button className="close-btn" onClick={() => navigate(-1)}>
+        ✖
+      </button>
 
       <h2>Complete Your Ticket Purchase</h2>
 
       {ticketData.type && ticketData.amount ? (
         <>
-          <p><strong>Ticket Type:</strong> {ticketData.type}</p>
-          <p><strong>Event Name:</strong> SparkFest 2025</p>
-          <p><strong>Amount:</strong> ₹{ticketData.amount}</p>
+          <p>
+            <strong>Ticket Type:</strong> {ticketData.type}
+          </p>
+          <p>
+            <strong>Event Name:</strong> SparkFest 2025
+          </p>
+          <p>
+            <strong>Amount:</strong> ₹{ticketData.amount}
+          </p>
 
           {/* <div className="payment-options">
             <label>
@@ -125,7 +139,11 @@ const PaymentPage = () => {
             </label>
           </div> */}
 
-          <button className="pay-btn" onClick={handlePayment} disabled={loading}>
+          <button
+            className="pay-btn"
+            onClick={handlePayment}
+            disabled={loading}
+          >
             Pay Now
           </button>
         </>
