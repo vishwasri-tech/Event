@@ -93,11 +93,7 @@ const RegisterPage2 = () => {
     const baseFee = Number(formData.fee);
     const totalFee = baseFee;
     try {
-<<<<<<< HEAD
       const response = await fetch("/api/register", {
-=======
-      const response = await fetch("http://localhost:5000/api/register", {
->>>>>>> 5633fc9 (solved conflicts in registrationsuccess)
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
