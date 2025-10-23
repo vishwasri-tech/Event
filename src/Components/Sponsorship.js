@@ -12,7 +12,7 @@ const Sponsorship = () => {
     terms: false,
   });
 
-  const [_amount, setAmount] = useState("");
+  const [, setAmount] = useState("");
   const [showPopup, setShowPopup] = useState(false); // ✅ Added state for popup
   const [, setPopupMessage] = useState("");
 
