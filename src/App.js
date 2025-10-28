@@ -28,6 +28,7 @@ import PaymentPage from "./Components/PaymentPage";
 import TicketCard from "./Components/TicketCard";
 import TicketBuy from "./Components/BuyTickets";
 import TicketForm1 from "./Components/TicketForm1";
+import ContactRegistration from "./Components/ContactRegistration";
 
 function App() {
   return (
@@ -57,6 +58,10 @@ function App() {
           {/* ✅ Optional: Registration Page 2 (if you want to navigate next step) */}
           <Route path="/register/competition" element={<RegisterPage2 />} />
           <Route path="/stalls" element={<Stalls />} />
+          <Route
+            path="/contact-registration"
+            element={<ContactRegistration />}
+          />
           <Route path="/sponsorship" element={<Sponsorship />} />
           <Route path="/tickets" element={<BuyTickets />} />
           <Route path="/completeregistration" element={<RegistrationCard />} />

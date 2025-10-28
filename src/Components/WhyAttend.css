@@ -2,7 +2,7 @@
 .why-attend-section {
   padding: 60px 20px;
   background-color: #fff;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .why-title {
@@ -28,6 +28,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 40px 80px;
   max-width: 1100px;
+  padding-left: 68px;
   margin: 0 auto 60px auto;
 }
 
@@ -192,9 +193,9 @@
 }
 
 @media (max-width: 1024px),
-       (max-width: 920px),
-       (max-width: 812px),
-       (max-width: 768px) {
+  (max-width: 920px),
+  (max-width: 812px),
+  (max-width: 768px) {
   .why-grid {
     grid-template-columns: 1fr;
     gap: 30px;

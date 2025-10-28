@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import "./Sponsorship.css";
+import { useNavigate } from "react-router-dom"; // ✅ import this
 
 const Sponsorship = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate(); // ✅ initialize navigate
 
   const [formData, setFormData] = useState({
     name: "",
     competition: "",
     email: "",
     mobile: "",
-    terms: false,
   });
 
   const [, setAmount] = useState("");
-  const [showPopup, setShowPopup] = useState(false); // ✅ Added state for popup
-  const [, setPopupMessage] = useState("");
 
   const sponsorshipPackages = {
     Bronze: "₹50,000",
@@ -27,10 +25,10 @@ const Sponsorship = () => {
   const competitions = Object.keys(sponsorshipPackages);
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: value,
     });
 
     if (name === "competition") {
@@ -49,78 +47,35 @@ const Sponsorship = () => {
       !formData.email ||
       !formData.mobile
     ) {
-      alert("Please fill all fields before proceeding.");
+      alert("⚠️ Please fill all fields before proceeding.");
       return false;
     }
     if (!nameRegex.test(formData.name)) {
-      alert("Name should contain only alphabets.");
+      alert("⚠️ Name should contain only alphabets.");
       return false;
     }
     if (!emailRegex.test(formData.email)) {
-      alert("Enter a valid email address.");
+      alert("⚠️ Enter a valid email address.");
       return false;
     }
     if (!mobileRegex.test(formData.mobile)) {
-      alert("Mobile number must contain 10 digits.");
-      return false;
-    }
-    if (!formData.terms) {
-      alert("Please accept the Terms and Conditions.");
+      alert("⚠️ Mobile number must contain 10 digits.");
       return false;
     }
     return true;
   };
 
-  const handleSponsorshipRegistrationClick = async () => {
+  const handleSponsorshipRegistrationClick = () => {
     if (!validateForm()) return;
 
-    try {
-      const response = await fetch("/api/sponsorship", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          competition: formData.competition,
-          email: formData.email,
-          mobile: formData.mobile,
-        }),
-      });
-
-      const data = await response.json();
-      console.log("Response from backend:", data);
-
-      if (response.ok) {
-        setPopupMessage(data.message || "✅ Submitted successfully!");
-        setShowPopup(true);
-
-        // Reset form
-        setFormData({
-          name: "",
-          competition: "",
-          email: "",
-          mobile: "",
-          terms: false,
-        });
-        setAmount("");
-      } else {
-        setPopupMessage(data.message || "❌ Failed to submit form.");
-        setShowPopup(true);
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      setPopupMessage("⚠️ Server error. Please try again later.");
-      setShowPopup(true);
-    }
+    // Just redirect to contact page (no backend)
+    navigate("/contact-registration");
   };
-
-  const closePopup = () => setShowPopup(false);
-
   return (
     <div className="sponsorship">
       <div className="sponsorship-container">
         <h2 className="form-title">Sponsorship Registration</h2>
 
-        {/* Sponsorship Info (unchanged) */}
         <div className="sponsorship-info">
           <h3>Partner With Us — Power the Celebration of Innovation!</h3>
           <p>
@@ -157,7 +112,6 @@ const Sponsorship = () => {
           </h4>
         </div>
 
-        {/* Sponsorship Form */}
         <form>
           <div className="form-group">
             <label>Company Name</label>
@@ -208,18 +162,6 @@ const Sponsorship = () => {
             />
           </div>
 
-          <div className="form-group terms">
-            <label>
-              <input
-                type="checkbox"
-                name="terms"
-                checked={formData.terms}
-                onChange={handleChange}
-              />
-              &nbsp; * Terms and Conditions
-            </label>
-          </div>
-
           <div className="button-container">
             <button
               type="button"
@@ -231,25 +173,6 @@ const Sponsorship = () => {
           </div>
         </form>
       </div>
-
-      {/*  Popup Message */}
-      {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup-box">
-            <h3>Thank You!</h3>
-            <p>
-              Thank you for your interest in sponsoring{" "}
-              <strong>[Event Name]</strong>.
-              <br />
-              Our team will get in touch with you shortly to discuss your
-              sponsorship details.
-            </p>
-            <button className="close-popup" onClick={closePopup}>
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

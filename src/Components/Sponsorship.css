@@ -71,8 +71,6 @@
   padding-left: 12px; /* ✅ aligns with input text inside the box */
 }
 
-
-
 .form-group.terms label {
   display: flex;
   align-items: center;
@@ -157,7 +155,7 @@
 
   .form-group.terms label {
     font-size: 13.5px;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
   }
 
   .submit-btn {
@@ -189,7 +187,7 @@
 }
 
 .popup-box h3 {
-  color: #F5167E;
+  color: #f5167e;
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
@@ -202,7 +200,7 @@
 }
 
 .close-popup {
-  background: #F5167E;
+  background: #f5167e;
   color: #fff;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -213,7 +211,7 @@
 }
 
 .close-popup:hover {
-  background: #F5167E;
+  background: #f5167e;
 }
 
 @keyframes popupIn {
@@ -226,4 +224,3 @@
     opacity: 1;
   }
 }
-

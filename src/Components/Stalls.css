@@ -71,8 +71,6 @@
   padding-left: 12px; /* ✅ aligns with input text inside the box */
 }
 
-
-
 .form-group.terms label {
   display: flex;
   align-items: center;

@@ -5,8 +5,8 @@
   padding: 30px 20px;
   color: #fff;
   position: relative;
-  text-align: left;            
-  font-family: 'Arial', sans-serif;
+  text-align: left;
+  font-family: "Arial", sans-serif;
   height: 80vh;
   display: flex;
   flex-direction: column;
@@ -26,15 +26,15 @@
 /* Main Hero Content */
 .hero-content {
   max-width: 1200px;
-  margin: 0;                  
-  padding: 70px 20px 0 20px;    
-  text-align: left;             
+  margin: 0;
+  padding: 70px 20px 0 20px;
+  text-align: left;
   box-sizing: border-box;
 }
 .hero-content h1 {
   font-size: 38px;
   font-weight: bold;
-  color: #DCA80E;
+  color: #dca80e;
   line-height: 1.6;
   margin-top: -15px;
 }
@@ -52,7 +52,7 @@
 .cta-buttons {
   margin-top: 25px;
   display: flex;
-  justify-content: flex-start;   
+  justify-content: flex-start;
   gap: 15px;
   flex-wrap: wrap;
 }
@@ -91,11 +91,10 @@
   align-self: center;
   gap: 50px;
   flex-wrap: wrap;
-  margin-top: 120px;
+  margin-top: 100px;
   width: 100%;
   max-width: 1100px;
   box-sizing: border-box;
- 
 }
 .feature-item {
   font-size: 16px;
@@ -159,7 +158,7 @@
   .cta-buttons {
     flex-direction: column;
     gap: 10px;
-    align-items: flex-start;     /* ✅ keep buttons left */
+    align-items: flex-start; /* ✅ keep buttons left */
   }
   .btn-pink,
   .btn-white {
@@ -213,7 +212,6 @@
   flex-direction: column;
   gap: 8px;
   margin-bottom: 20px;
- 
 }
 .hamburger span {
   height: 3px;
@@ -221,7 +219,6 @@
   background: white;
   border-radius: 2px;
   transition: 0.3s;
- 
 }
 /* Hamburger animation when active */
 .hamburger.active span:nth-child(1) {
@@ -241,14 +238,14 @@
   right: 20px;
   background: white;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
   z-index: 100;
   width: 220px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;       /* ✅ align text left */
+  align-items: flex-start; /* ✅ align text left */
 }
 /* Close Button */
 .close-btn {
@@ -269,9 +266,101 @@
   font-weight: 500;
   transition: color 0.2s;
   color: #000;
-  text-align: left;              /* ✅ uniform left alignment */
+  text-align: left; /* ✅ uniform left alignment */
   width: 100%;
 }
 .dropdown-menu p:hover {
   color: #e91e63;
+}
+
+.hero-content {
+  padding-left: 190px;
+}
+.logo-container {
+  padding-left: 150px;
+}
+/* New */
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+  .logo-container {
+    padding-left: 60px;
+  }
+
+  .hero-content {
+    padding-left: 60px;
+    padding-top: 40px;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+    line-height: 1.4;
+  }
+
+  .date,
+  .subtext {
+    font-size: 16px;
+  }
+}
+
+/* Mobile Devices (Below 768px) */
+@media (max-width: 768px) {
+  .event-hero {
+    padding: 20px 15px;
+    min-height: auto;
+  }
+
+  .logo-container {
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+
+  .logo-container img {
+    width: 120px;
+  }
+
+  .hero-content {
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 26px;
+    line-height: 1.4;
+  }
+
+  .date,
+  .subtext {
+    font-size: 14px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .btn-pink,
+  .btn-white {
+    width: 100%;
+    max-width: 240px;
+    font-size: 14px;
+    padding: 10px 18px;
+  }
+
+  .features-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+  }
+
+  .feature-item {
+    font-size: 14px;
+  }
+
+  .feature-icon {
+    width: 30px;
+    height: 30px;
+  }
 }
