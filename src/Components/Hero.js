@@ -1,8 +1,3 @@
-
-
-
-
-
 import React, { useState } from "react";
 import "./Hero.css";
 import bgImage from "../assets/bg.png";
@@ -51,19 +46,44 @@ const EventHero = () => {
             ✕
           </button>
 
-          <p onClick={() => { setMenuOpen(false); navigate("/ticketform"); }}>
+          <p
+            onClick={() => {
+              setMenuOpen(false);
+              navigate("/ticketform");
+            }}
+          >
             My Tickets
           </p>
-          <p onClick={() => { setMenuOpen(false); navigate("/ticketform1"); }}>
+          <p
+            onClick={() => {
+              setMenuOpen(false);
+              navigate("/ticketform1");
+            }}
+          >
             My Registration
           </p>
-          <p onClick={() => { setMenuOpen(false); navigate("/terms"); }}>
+          <p
+            onClick={() => {
+              setMenuOpen(false);
+              navigate("/terms");
+            }}
+          >
             Terms & Conditions
           </p>
-          <p onClick={() => { setMenuOpen(false); navigate("/privacy"); }}>
+          <p
+            onClick={() => {
+              setMenuOpen(false);
+              navigate("/privacy");
+            }}
+          >
             Privacy Policy
           </p>
-          <p onClick={() => { setMenuOpen(false); navigate("/refund-policy"); }}>
+          <p
+            onClick={() => {
+              setMenuOpen(false);
+              navigate("/refund-policy");
+            }}
+          >
             Cancellation Policy
           </p>
         </div>
@@ -72,14 +92,17 @@ const EventHero = () => {
       {/* Main Content */}
       <div className="hero-content">
         <h1>
-         Vishwasri Technologies - SparkFest 2025
+          Vishwasri Technologies - SparkFest 2025
           <br />
-       Marking One Year of Transforming Ideas into Technology</h1>
-        <p className="date">Nov 9th, 2025, 📍 University Post Graduate College  - Secunderabad</p>
+          Marking One Year of Transforming Ideas into Technology
+        </h1>
+        <p className="date">
+          Nov 9th, 2025, 📍 University Post Graduate College - Secunderabad
+        </p>
         <p className="subtext">
           <em>
-            Experience innovation, networking & opportunities – all in one
-            grand event.
+            Experience innovation, networking & opportunities – all in one grand
+            event.
           </em>
         </p>
 

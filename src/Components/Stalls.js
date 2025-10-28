@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; // ✅ Import axios for backend calls
+import axios from "axios";
 import "./Stalls.css";
 
 const Stalls = () => {
@@ -11,16 +11,15 @@ const Stalls = () => {
     competition: "",
     email: "",
     mobile: "",
-    terms: false,
   });
 
   const competitions = ["Food", "Clothing", "Tech", "Art", "Startup"];
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: value,
     });
   };
 
@@ -38,7 +37,7 @@ const Stalls = () => {
       return false;
     }
     if (!formData.competition) {
-      alert("⚠️ Please select a competition.");
+      alert("⚠️ Please select a stall category.");
       return false;
     }
     if (!formData.email.trim()) {
@@ -57,10 +56,6 @@ const Stalls = () => {
       alert("⚠️ Mobile number should be 10 digits only.");
       return false;
     }
-    if (!formData.terms) {
-      alert("⚠️ Please accept the Terms and Conditions.");
-      return false;
-    }
 
     return true;
   };
@@ -69,7 +64,6 @@ const Stalls = () => {
     if (!validateForm()) return;
 
     const baseFee = 40000;
-    // const feeWithGST = (baseFee * 1.18).toFixed(2);
 
     const stallData = {
       name: formData.name,
@@ -81,16 +75,8 @@ const Stalls = () => {
     };
 
     try {
-      // ✅ Send data to backend API
-      const response = await axios.post("/api/stalls", stallData);
-
-      if (response.status === 201) {
-        alert("✅ Stall Registered Successfully!");
-        // Navigate to payment or next screen
-        navigate("/completeregistration", {
-          state: { ...stallData, stallId: response.data.stallId },
-        });
-      }
+      console.log("✅ Stall data captured:", stallData);
+      navigate("/contact-registration");
     } catch (error) {
       console.error("❌ Error while registering stall:", error);
       alert(
@@ -138,16 +124,11 @@ const Stalls = () => {
               value={formData.competition}
               onChange={handleChange}
             >
-              <option value="">Select Competition</option>
+              <option value="">Select Category</option>
               {competitions.map((c) => (
                 <option key={c}>{c}</option>
               ))}
             </select>
-          </div>
-
-          <div className="form-group">
-            <label>Registration Fee</label>
-            <input type="text" name="fee" value="₹40,000" readOnly />
           </div>
 
           <div className="form-group">
@@ -172,25 +153,13 @@ const Stalls = () => {
             />
           </div>
 
-          <div className="form-group terms">
-            <label>
-              <input
-                type="checkbox"
-                name="terms"
-                checked={formData.terms}
-                onChange={handleChange}
-              />
-              &nbsp; * Terms and Conditions
-            </label>
-          </div>
-
           <div className="button-container">
             <button
               type="button"
               className="submit-btn"
               onClick={handleStallsClick}
             >
-              Proceed To Payment
+              Submit
             </button>
           </div>
         </form>

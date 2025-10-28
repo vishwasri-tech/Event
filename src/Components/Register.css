@@ -83,7 +83,7 @@
 }
 
 .card-content ul li::before {
-  content: '✔';
+  content: "✔";
   position: absolute;
   left: 0;
   top: 0;
@@ -148,4 +148,8 @@
     font-size: 15px;
     padding: 10px;
   }
+}
+
+.card:nth-child(2) .register-btn {
+  margin-top: 36px;
 }

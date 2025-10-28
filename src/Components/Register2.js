@@ -10,7 +10,6 @@ const RegisterPage2 = () => {
     competition: "",
     email: "",
     mobile: "",
-    terms: false,
     fee: "",
   });
 
@@ -28,18 +27,18 @@ const RegisterPage2 = () => {
   const competitions = Object.keys(competitionPrices);
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
 
     if (name === "competition") {
       setFormData({
         ...formData,
         competition: value,
-        fee: competitionPrices[value] || "", // set base fee
+        fee: competitionPrices[value] || "",
       });
     } else {
       setFormData({
         ...formData,
-        [name]: type === "checkbox" ? checked : value,
+        [name]: value,
       });
     }
   };
@@ -77,10 +76,6 @@ const RegisterPage2 = () => {
       alert("⚠️ Mobile number should have only 10 digits.");
       return false;
     }
-    if (!formData.terms) {
-      alert("⚠️ Please accept the Terms and Conditions.");
-      return false;
-    }
 
     return true;
   };
@@ -88,10 +83,10 @@ const RegisterPage2 = () => {
   const handlePaymentClick = async () => {
     if (!validateForm()) return;
 
-    // 🧮 Calculate total fee with 18% GST (internally only)
     setLoading(true);
     const baseFee = Number(formData.fee);
     const totalFee = baseFee;
+
     try {
       const response = await fetch("/api/register", {
         method: "POST",
@@ -110,7 +105,6 @@ const RegisterPage2 = () => {
 
       if (response.ok) {
         alert("✅ Registration Successful!");
-        // Navigate to CompleteRegistration page with form data
         navigate("/completeregistration", {
           state: {
             name: formData.name,
@@ -132,18 +126,18 @@ const RegisterPage2 = () => {
       setLoading(false);
     }
   };
+
   return (
     <div className="register-page2">
       <div className="register2-container">
         <h2 className="form-title">Competition Registration</h2>
 
-        {/* ✅ Keep your original content below untouched */}
         <div className="showcase-section">
           <h3>Showcase Your Talent — Compete & Win Big!</h3>
           <p>
             Step into the spotlight and prove your skills across four exciting
-            competitions —
-            <strong> Tech, Clothing, Food, and Startup Pitching.</strong>
+            competitions —{" "}
+            <strong>Tech, Clothing, Food, and Startup Pitching.</strong>
           </p>
           <p>
             Bring your ideas, creativity, and innovation to life and stand a
@@ -153,29 +147,25 @@ const RegisterPage2 = () => {
           <ul>
             <li>
               <strong>Tech Competition</strong> – Solve real–world problem
-              statements and win
-              <strong> ₹1,00,000</strong> for the best solution.
+              statements and win <strong>₹1,00,000</strong>.
             </li>
             <li>
               <strong>Clothing Competition</strong> – Unleash your creativity in
-              fashion design and win
-              <strong> ₹25,000</strong>.
+              fashion design and win <strong>₹25,000</strong>.
             </li>
             <li>
               <strong>Food Competition</strong> – Cook up your best recipe and
-              win
-              <strong> ₹20,000</strong> for your culinary brilliance.
+              win <strong>₹20,000</strong>.
             </li>
             <li>
               <strong>Startup Pitching</strong> – Present your idea and win
-              <strong> funding up to ₹5 Lakhs</strong> to turn your dream into
-              reality.
+              <strong> funding up to ₹5 Lakhs</strong>.
             </li>
           </ul>
 
           <p className="highlight">
-            Registration fees start as low as <strong>₹1,000</strong>, so don’t
-            wait — this is your chance to shine, connect, and compete at
+            Registration fees start as low as <strong>₹1,000</strong> — don’t
+            wait! This is your chance to shine, connect, and compete at
             <strong> Vishwasri Technologies’ grand celebration!</strong>
           </p>
           <p>
@@ -196,7 +186,7 @@ const RegisterPage2 = () => {
           </div>
 
           <div className="form-group">
-            <label>Competitions Name</label>
+            <label>Competition Name</label>
             <select
               name="competition"
               value={formData.competition}
@@ -244,18 +234,6 @@ const RegisterPage2 = () => {
             />
           </div>
 
-          <div className="form-group terms">
-            <label>
-              <input
-                type="checkbox"
-                name="terms"
-                checked={formData.terms}
-                onChange={handleChange}
-              />
-              &nbsp; * Terms and Conditions
-            </label>
-          </div>
-
           <div className="button-container">
             <button
               type="button"
@@ -263,7 +241,7 @@ const RegisterPage2 = () => {
               onClick={handlePaymentClick}
               disabled={loading}
             >
-              {loading ? "Submitting..." : "Proceed To Payment"}
+              {loading ? "Submitting..." : "Proceed to pay"}
             </button>
           </div>
         </form>

@@ -9,8 +9,8 @@ import foodiesIcon from "../assets/foodies.png";
 import kidsZoneImg from "../assets/kidszone.png";
 
 const WhyAttend = () => {
-    const navigate = useNavigate();
-       const handleTicketFormClick = () => {
+  const navigate = useNavigate();
+  const handleTicketFormClick = () => {
     navigate("/TicketBuy");
   };
   return (
@@ -49,9 +49,7 @@ const WhyAttend = () => {
           <img src={familiesIcon} alt="Families" className="icon" />
           <div className="text">
             <h4>For Families</h4>
-            <p>
-              Food, shopping, cultural shows, and fun activities for kids.
-            </p>
+            <p>Food, shopping, cultural shows, and fun activities for kids.</p>
           </div>
         </div>
 
@@ -73,9 +71,15 @@ const WhyAttend = () => {
           <div className="kids-zone-text">
             <h3>Kids Zone</h3>
             <p>
-              A day bursting with joy - creative workshops, exciting games, art corners, STEM experiments, cultural performances, treasure hunts, obstacle courses, and surprise fun activities. A platform for young minds to explore, learn, imagine, and turn their ideas into reality.
+              A day bursting with joy - creative workshops, exciting games, art
+              corners, STEM experiments, cultural performances, treasure hunts,
+              obstacle courses, and surprise fun activities. A platform for
+              young minds to explore, learn, imagine, and turn their ideas into
+              reality.
             </p>
-             <button className="fun-btn"  onClick= {handleTicketFormClick} >Join the Fun!</button>
+            <button className="fun-btn" onClick={handleTicketFormClick}>
+              Join the Fun!
+            </button>
           </div>
           <div className="kids-zone-img">
             <img src={kidsZoneImg} alt="Kids Zone" />

@@ -3,8 +3,9 @@
    =================== */
 
 .whats-happening-section {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   padding: 100px 20px;
+  padding-left: 70px;
   background-color: #fff;
   color: #1a1a1a;
   overflow-x: hidden;
@@ -61,7 +62,7 @@
    Ticket Section (Desktop)
    =================== */
 .ticket-section {
-  background-color: #EEE1FF;
+  background-color: #eee1ff;
   margin-top: 50px;
   padding: 20px 20px;
   display: flex;
@@ -76,8 +77,8 @@
   flex-direction: column;
   align-items: flex-start;
 }
-
 .ticket-text h3,
+p .ticket-text h3,
 .ticket-text p,
 .ticket-btn {
   margin-left: 0;
@@ -117,7 +118,6 @@
   width: 450px;
   height: 370px;
 }
-
 
 /* ===================
    Responsive for Tablets (768px - 1024px)
@@ -246,9 +246,9 @@
   font-size: 17px;
   color: #333;
   max-width: 1400px;
-  margin: 0 0 40px 0;   /* spacing below heading */
+  margin: 0 0 40px 0; /* spacing below heading */
   line-height: 1.7;
-  text-align: left;     /* desktop = left aligned */
+  text-align: left; /* desktop = left aligned */
 }
 
 /* Tablet adjustments */
@@ -268,7 +268,112 @@
     text-align: center; /* ✅ center on mobile */
     margin: 0 auto 25px auto;
     line-height: 1.5;
-    padding: 0 10px;    /* ✅ little side padding for narrow screens */
+    padding: 0 10px; /* ✅ little side padding for narrow screens */
   }
 }
 
+/* ✅ Universal container for consistent left alignment */
+.content-wrapper {
+  width: 100%;
+  max-width: 1100px; /* Same width as features-bar */
+  margin: 0 auto;
+  padding-left: 40px; /* Consistent inner padding */
+  box-sizing: border-box;
+}
+
+/* NEW */
+.ticket-zone {
+  margin-top: 40px;
+  background-color: #eee1ff;
+  width: 100vw;
+  padding: 40px 0;
+  margin-left: 0;
+  box-sizing: border-box;
+  margin-left: calc(-50vw + 50%);
+}
+
+.ticket-zone-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.ticket-zone-text {
+  flex: 1 1 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding: 20px;
+  max-width: 500px;
+}
+
+.ticket-zone-text h3 {
+  font-size: 26px;
+  color: #1d2d64;
+  font-weight: bold;
+  margin-bottom: 16px;
+  margin-top: 0;
+  line-height: 1.4;
+}
+
+.ticket-zone-text p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ticket-zone-img {
+  flex: 1 1 500px;
+  text-align: center;
+}
+
+.ticket-zone-img img {
+  width: 80%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* TICKET BUTTON */
+.ticket-btn {
+  background-color: #e91e63;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+  align-self: flex-start;
+}
+
+.ticket-btn:hover {
+  opacity: 0.9;
+}
+.whats-happening-section {
+  padding-left: 0 !important;
+}
+
+.whats-happening {
+  padding-left: 4%;
+}
+.ticket-zone-text {
+  padding-left: 40px;
+}
+
+.whats-happening h1 {
+  display: flex;
+}
+.whats-happening p {
+  margin-right: 200px;
+}
