@@ -25,10 +25,22 @@
 }
 
 /* Event List */
-.event-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+
+@media (max-width: 768px) {
+  .event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+}
+
+@media (min-width: 769px) {
+  .event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
 .event-item {
@@ -181,12 +193,14 @@ p .ticket-text h3,
   .whats-happening {
     margin-left: 0;
     margin-right: 0;
+    padding-left: 0;
   }
 
   .whats-happening h1 {
     font-size: 20px;
-    text-align: center;
+    text-align: left;
     margin-right: 0;
+    padding-left: 20px;
   }
 
   .event-item {
@@ -265,10 +279,10 @@ p .ticket-text h3,
 @media (max-width: 768px) {
   .whats-happening > p {
     font-size: 14px;
-    text-align: center; /* ✅ center on mobile */
+    text-align: left; /* ✅ center on mobile */
     margin: 0 auto 25px auto;
     line-height: 1.5;
-    padding: 0 10px; /* ✅ little side padding for narrow screens */
+    padding: 0 20px; /* ✅ little side padding for narrow screens */
   }
 }
 
@@ -360,20 +374,37 @@ p .ticket-text h3,
 .ticket-btn:hover {
   opacity: 0.9;
 }
-.whats-happening-section {
-  padding-left: 0 !important;
+@media (min-width: 769px) {
+  .whats-happening-section {
+    padding-left: 0 !important;
+  }
 }
 
-.whats-happening {
-  padding-left: 4%;
-}
-.ticket-zone-text {
-  padding-left: 40px;
+@media (min-width: 769px) {
+  .whats-happening {
+    padding-left: 4%;
+  }
 }
 
-.whats-happening h1 {
-  display: flex;
+@media (max-width: 768px) {
+  .ticket-zone-text {
+    padding-left: 20px;
+  }
 }
-.whats-happening p {
-  margin-right: 200px;
+@media (min-width: 769px) {
+  .ticket-zone-text {
+    padding-left: 40px;
+  }
+}
+
+@media (min-width: 769px) {
+  .whats-happening h1 {
+    display: flex;
+  }
+}
+@media (min-width: 769px) {
+  .whats-happening p {
+    margin-right: 200px;
+    text-align: left;
+  }
 }

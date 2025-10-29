@@ -199,6 +199,7 @@
   .why-grid {
     grid-template-columns: 1fr;
     gap: 30px;
+    padding-left: 0;
   }
 
   .why-grid .why-item:nth-child(3),
