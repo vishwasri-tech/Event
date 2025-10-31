@@ -35,7 +35,7 @@ const PaymentPage = () => {
     script.src = "https://checkout.razorpay.com/v1/checkout.js";
     script.onload = () => {
       const options = {
-        key: "rzp_test_RRHoCga4aLq8js", // replace with your Razorpay test key
+        key: process.env.REACT_APP_RAZORPAY_KEY_ID,
         amount: order.amount,
         currency: order.currency,
         name: "Vishwasri Technologies",
