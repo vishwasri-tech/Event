@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom"; 
+import { useNavigate, useLocation } from "react-router-dom";
 import "./Tickets.css";
 
 const BuyTickets = () => {
@@ -9,17 +9,21 @@ const BuyTickets = () => {
   const [selected, setSelected] = useState("Couple");
 
   const ticketPrices = {
-    Single: 499,
-    Couple: 950,
-    "Family (4)": 1849,
-    VIP: 2499,
+    Single: 199,
+    Couple: 349,
+    "Family (3 + 1)": 699,
+    VIP: 1999,
   };
 
   // Handle Proceed Button
   const handleProceed = () => {
     const basePrice = ticketPrices[selected];
     const totalWithGST = Math.round(basePrice * 1.18); // ✅ Include 18% GST
-    const ticketData = { type: selected, amount: totalWithGST, contact: contact, };
+    const ticketData = {
+      type: selected,
+      amount: totalWithGST,
+      contact: contact,
+    };
 
     // ✅ Pass data to PaymentPage dynamically
     navigate("/paymentpage", { state: ticketData });
@@ -28,7 +32,9 @@ const BuyTickets = () => {
   return (
     <div className="ticket-container">
       {/* Close Button */}
-      <button className="close-btn" onClick={() => navigate(-1)}>✖</button>
+      <button className="close-btn" onClick={() => navigate(-1)}>
+        ✖
+      </button>
 
       <h2>Buy Tickets</h2>
 
