@@ -34,7 +34,7 @@ const RegistrationCard = () => {
     script.src = "https://checkout.razorpay.com/v1/checkout.js";
     script.onload = () => {
       const options = {
-        key: "rzp_test_RRHoCga4aLq8js", // from Razorpay dashboard (test key)
+        key: process.env.REACT_APP_RAZORPAY_KEY_ID, // from Razorpay dashboard (test key)
         amount: order.amount,
         currency: order.currency,
         name: "Vishwasri Technologies Anniversary",
