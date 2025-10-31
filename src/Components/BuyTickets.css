@@ -15,7 +15,7 @@
 .ticket-form-card1 {
   background: white;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   width: 100%;
   max-width: 350px;
@@ -26,11 +26,11 @@
 .ticket-form-card1 h2 {
   color: #0b0c5a;
   margin-bottom: 1rem;
- text-align: center;
+  text-align: center;
 }
 
 .ticket-form-card1 input {
-  width: 100%;
+  width: 90%;
   padding: 0.7rem;
   border: 1px solid #ccc;
   border-radius: 5px;
