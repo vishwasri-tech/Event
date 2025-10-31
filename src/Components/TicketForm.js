@@ -1,17 +1,17 @@
 // TicketForm.js
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './TicketForm.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./TicketForm.css";
 
 const TicketForm = ({ onGetTicket }) => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate(); // React Router hook
 
   const handleClose = () => {
     navigate(-1); // Go back to previous page
   };
-   const handleGetTicketClick = async (e) => {
+  const handleGetTicketClick = async (e) => {
     e.preventDefault();
 
     if (!input.trim()) {
@@ -20,7 +20,7 @@ const TicketForm = ({ onGetTicket }) => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/ticket/${input}`);
+      const response = await fetch(`/api/ticket/${input}`);
       const data = await response.json();
 
       if (response.ok && data) {

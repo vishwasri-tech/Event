@@ -1,11 +1,11 @@
 // TicketForm1.js
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './TicketForm1.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./TicketForm1.css";
 
 const TicketForm1 = () => {
-  const [input, setInput] = useState('');
-  const [error, setError] = useState('');
+  const [input, setInput] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleClose = () => navigate(-1);
@@ -20,7 +20,7 @@ const TicketForm1 = () => {
 
     try {
       //  Try to fetch Competition registration first
-      let response = await fetch(`http://localhost:5000/api/registration/${input}`);
+      let response = await fetch(`/api/registration/${input}`);
       let data = await response.json();
 
       if (response.ok && data) {
@@ -32,7 +32,7 @@ const TicketForm1 = () => {
       }
 
       //  If not found, check Stall registration
-      response = await fetch(`http://localhost:5000/api/stalls/${input}`);
+      response = await fetch(`/api/stalls/${input}`);
       data = await response.json();
 
       if (response.ok && data) {
